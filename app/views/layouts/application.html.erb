@@ -9,6 +9,12 @@
   </head>
 
   <body>
-    <%= yield %>
+   <%= yield %>
+
+  <% if current_user %>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete,:class =>"logout" %>
+  <% else %>
+    <%= link_to 'Login', new_user_session_path %>
+  <% end %>
   </body>
 </html>

@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+.logout
+{
+  margin-top: -100px;
+  float:right;
+}
+
+@import "bootstrap-sprockets";
+@import "bootstrap" 

@@ -13,3 +13,42 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//jquery
+//= require jquery 
+//= require jquery_ujs
+//= require cocoon
+
+
+// $(document).ready(function(){
+//  $('#permanent').change(function() {
+//    if($(this).is(":checked")){
+    
+//    }
+   
+// });
+// });
+
+
+
+
+
+
+
+
+// $('#yourCheckbox').change(function(){
+//   if($(this).prop("checked")) {
+//     $('#myDiv').show();
+//   } else {
+//     $('#myDiv').hide();
+//   }
+// });
+
+
+
+// $('#yourCheckbox').change(function(){
+//   if($(this).is(":checked")){
+//     $('#myDiv').show();
+//   } else if($(this).is(":not(:checked)")){
+//     $('#myDiv').hide();
+//   }
+// });

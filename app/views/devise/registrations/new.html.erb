@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-3">
+      <h2>Sign up</h2>
+    </div>
+      <div class="col-sm-5"></div>
+    
+  </div>
+</div><br>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="container">
+    <div class="row">    
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= f.label :Firstname %><br />
+          <%= f.text_field :first_name, autofocus: true %>
+        </div>  
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= f.label :Lastname %><br />
+          <%= f.text_field :last_name, autofocus: true %>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <%= f.label :Fathers_name%><br />
+        <%= f.text_field :father_name, autofocus: true %>
+      </div>
+    </div>
+    <div class="row">     
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= f.label :Mother_name %><br />
+          <%= f.text_field :mother_name, autofocus: true %>  
+        </div> 
+      </div>    
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= f.label :Fathers_Occupation %><br />
+          <%= f.text_field :father_occupation, autofocus: true %>
+        </div>         
+      </div>   
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= f.label :Mothers_Occupation %><br />
+          <%= f.text_field :mother_occupation, autofocus: true %>
+        </div>  
+      </div> 
+    </div>
+    <div class="row">  
+      <div class="col-sm-4">
+        <div class="form-group">
+         <%= f.label :email %><br />
+         <%= f.email_field :email, autofocus: true %>
+        </div>  
+      </div> 
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= f.label :Phonenumber %><br />
+          <%= f.text_field :phone_no, autofocus: true %>
+        </div>
+      <div class="col-sm-4"></div>  
+    </div>      
+  </div>
+ <hr>
+<h2>Address Details</h2><br>
+<h3>Local Adress</h3>
+  <div id='addresses'>
+    <%= f.fields_for :addresses, f.object.addresses.build do |addresses_form| %>
+      <%= render 'address_fields', f: addresses_form %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add address', f, :addresses %>
+    </div>
+  </div>
+ 
+  <div class="clearfix"></div>
+  
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+<%= render "devise/shared/links" %>
+  

@@ -12,14 +12,6 @@ class User < ApplicationRecord
   validates :last_name, presence: true 
   has_many :bank_accounts
 
-  before_validation :load_defaults
-
-  def load_defaults
-    if self.new_record?
-      self.user_type  
-    end  
-  end 
-
   def active_for_authentication? 
     super && approved? 
   end 
@@ -31,9 +23,5 @@ class User < ApplicationRecord
       super # Use whatever other message 
     end 
   end
-
-  def authenticate
-    true if params[:password] == password
-  end  
-
+  
 end

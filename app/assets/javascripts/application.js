@@ -52,3 +52,11 @@
 //     $('#myDiv').hide();
 //   }
 // });
+
+$('.approval_checkbox').click(function(){
+   if($(this).parent().is(":checked")){
+      alert("")
+    } else if($ (this).is(":not(:checked)")){
+     alert("hello")
+    }
+  });

@@ -1,0 +1,9 @@
+<table>
+  <% @users.each do |user| %>
+  <tr>
+    <td><%=user.email%></td>
+    <td id="<%=user.id%>"><%=check_box_tag :approved , true, false,class: "approval_checkbox"%></td>
+  </tr>  
+  <% end %>
+</table>
+

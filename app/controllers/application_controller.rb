@@ -13,4 +13,13 @@ class ApplicationController < ActionController::Base
     :house_no, :street_no, :pin , 
     :address_proof,:_destroy]])
   end
+
+  def after_sign_in_path_for(resource)
+    if resource.email == "admin123@gmail.com"
+      admins_index_path
+    else
+      request.env['omniauth.origin'] || stored_location_for(resource) ||  root_path 
+    end   
+  end
 end
+  

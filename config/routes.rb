@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  
+  get 'admins/index'
+
+  get 'regristations/regristations'
+
   # devise_for :users 
      
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'homes#index'
-  # get 'users/sign_up', to: 'devise/sessions#new'
 
+  # get 'users/sign_up', to: 'devise/sessions#new'
+  root'homes#index' 
   devise_for :users
 end
   

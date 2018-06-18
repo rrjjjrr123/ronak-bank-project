@@ -4,7 +4,6 @@ class CreateAccountTransactions < ActiveRecord::Migration[5.1]
       t.float :amount
       t.string :transaction_type
       t.string :transaction_number
-
       t.timestamps
     end
   end

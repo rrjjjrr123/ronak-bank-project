@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'admins/index'
+  
 
   get 'regristations/regristations'
 
@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   # get 'users/sign_up', to: 'devise/sessions#new'
   root'homes#index' 
-  devise_for :users
+  devise_for :users 
+  resources :admins do
+    member do
+      post 'approve'
+    end
+  end    
 end
-  

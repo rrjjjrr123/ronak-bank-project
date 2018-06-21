@@ -1,9 +1,12 @@
-<table>
-  <% @users.each do |user| %>
-  <tr>
-    <td><%=user.email%></td>
-    <td id="<%=user.id%>"><%=check_box_tag :approved , true, false,class: "approval_checkbox"%></td>
-  </tr>  
-  <% end %>
-</table>
-
+<div class="container">
+  <div class="table-responsive">          
+    <table class="table">
+      <% @users.each do |user| %>
+      <tr>
+        <td><%=user.email%></td>
+        <td id="<%=user.id%>"><%=check_box_tag :approved,true, false,class: "approval_checkbox"%></td>
+      </tr>  
+      <% end %>
+    </table>
+  </div>
+</div>

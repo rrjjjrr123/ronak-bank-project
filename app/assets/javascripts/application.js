@@ -18,45 +18,19 @@
 //= require jquery_ujs
 //= require cocoon
 
-
-// $(document).ready(function(){
-//  $('#permanent').change(function() {
-//    if($(this).is(":checked")){
-    
-//    }
+$(document).ready(function(){
+  $(".approval_checkbox").change( function(){
    
-// });
-// });
+    if ($(this).checked){
 
-
-
-
-
-
-
-
-// $('#yourCheckbox').change(function(){
-//   if($(this).prop("checked")) {
-//     $('#myDiv').show();
-//   } else {
-//     $('#myDiv').hide();
-//   }
-// });
-
-
-
-// $('#yourCheckbox').change(function(){
-//   if($(this).is(":checked")){
-//     $('#myDiv').show();
-//   } else if($(this).is(":not(:checked)")){
-//     $('#myDiv').hide();
-//   }
-// });
-
-$('.approval_checkbox').click(function(){
-   if($(this).parent().is(":checked")){
-      alert("")
-    } else if($ (this).is(":not(:checked)")){
-     alert("hello")
+      $.ajax({
+        url: '/admins/'+ $(this).closest('tr').attr('id'); + '/approve',
+        type: 'POST',
+        data: {completed: true}
+      });
+    }
+    else {
+      alert("no");
     }
   });
+});

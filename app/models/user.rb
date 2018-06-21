@@ -13,15 +13,14 @@ class User < ApplicationRecord
   has_many :bank_accounts
 
   def active_for_authentication? 
-    super && approved? 
+    super && approved?   
   end 
   
   def inactive_message 
     if !approved? 
-      :not_approved 
+      :not_approved   
     else 
       super # Use whatever other message 
     end 
   end
-  
 end

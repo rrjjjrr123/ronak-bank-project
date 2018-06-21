@@ -1,6 +1,11 @@
 class AdminsController < ApplicationController
   
   def index
-    @users = User.all
+    @users = User.where(approved: false)
   end
-end
+
+  def approve
+    @user = User.find(params[:id])
+    @user.update_attributes(approved: true)
+  end
+end  

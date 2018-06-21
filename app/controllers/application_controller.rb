@@ -15,8 +15,8 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if resource.email == "admin123@gmail.com"
-      admins_index_path
+    if resource.admin?
+      admins_path
     else
       request.env['omniauth.origin'] || stored_location_for(resource) ||  root_path 
     end   

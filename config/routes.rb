@@ -16,5 +16,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
+  resources :users do
+    member do
+      get 'amount_transfer' 
+    end  
+  end  
 end

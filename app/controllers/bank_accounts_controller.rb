@@ -1,16 +1,3 @@
 class BankAccountsController < ApplicationController
-  before_action :authenticate_user!  
-  
-  
-  def new 
-
-
-  end
-
-  def create 
-  end 
-
-  
-  def update 
-  end    
+  before_action :authenticate_user!       
 end

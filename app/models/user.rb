@@ -11,10 +11,11 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :bank_accounts, reject_if: :all_blank, allow_destroy: true
   validates :first_name, presence: true 
   validates :last_name, presence: true 
-  after_create :send_email,:generate_bank_account_number,:generate_bank_account_details
+  after_create :generate_bank_account_details
+  after_create :send_email 
 
   def generate_bank_account_details
-    bank_accounts.create!(account_number,balance)
+    bank_accounts.create!(account_number: rand(10 ** 10))
   end
   
   def send_email

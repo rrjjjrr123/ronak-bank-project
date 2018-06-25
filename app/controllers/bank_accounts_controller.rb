@@ -1,10 +1,9 @@
 class BankAccountsController < ApplicationController
+  before_action :authenticate_user!  
   
-  def index
-    @bank_accounts = BankAccout.all 
-  end
-
+  
   def new 
+
 
   end
 

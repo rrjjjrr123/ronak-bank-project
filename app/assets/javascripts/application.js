@@ -17,7 +17,6 @@
 //= require jquery 
 //= require jquery_ujs
 //= require cocoon
-
 $(document).ready(function(){
   $(".approval_checkbox").change( function(){
    
@@ -26,7 +25,7 @@ $(document).ready(function(){
       $.ajax({
         url: '/admins/'+ $(this).closest('tr').attr('id'); + '/approve',
         type: 'POST',
-        data: {completed: true}
+       
       });
     }
     else {

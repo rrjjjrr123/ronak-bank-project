@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
-  
-
   get 'regristations/regristations'
 
   # devise_for :users 
@@ -9,11 +7,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # get 'users/sign_up', to: 'devise/sessions#new'
-  root'homes#index' 
-  devise_for :users 
+  root'users#show' 
+  devise_for :users   
+  
   resources :admins do
     member do
       post 'approve'
     end
-  end    
+  end
+
+  resources :users
 end

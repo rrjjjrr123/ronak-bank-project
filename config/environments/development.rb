@@ -28,8 +28,20 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-  
+  config.action_mailer.raise_delivery_errors = true
+
+   config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+     :address =>"smtp.gmail.com",
+     :port => 587,
+     :domain => "gmail.com",
+     :user_name => "tt7717612@gmail.com",
+     :password => "12345678@a",
+     :authentication => 'plain',
+     :enable_starttls_auto => true,
+     :openssl_verify_mode => 'none' 
+     } 
   config.active_storage.service = :local
 
   config.action_mailer.perform_caching = false
@@ -44,10 +56,11 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
+ 
+  config.action_mailer.perform_deliveries = true
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-
+  
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
@@ -55,3 +68,5 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
+ # Set it to false to disable the email in dev mode
+                

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180615090846) do
+ActiveRecord::Schema.define(version: 20180627071530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,27 @@ ActiveRecord::Schema.define(version: 20180615090846) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "send_account_number"
+    t.string "send_account_number_confirmation"
     t.index ["user_id"], name: "index_bank_accounts_on_user_id"
+  end
+
+  create_table "beneficiaries", force: :cascade do |t|
+    t.integer "beneficiary_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_beneficiaries_on_user_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "credit_bank_account_id"
+    t.bigint "debit_bank_account_id"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["credit_bank_account_id"], name: "index_transactions_on_credit_bank_account_id"
+    t.index ["debit_bank_account_id"], name: "index_transactions_on_debit_bank_account_id"
   end
 
   create_table "users", force: :cascade do |t|

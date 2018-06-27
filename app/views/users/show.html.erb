@@ -1,21 +1,20 @@
 <div><h1>Welcome to the Banking system </h1></div><br>
-
-<% @user.bank_accounts.each do |bank_account| %>
   <div class="container">
     <div class="row">
       <div class="col-sm-6"> 
-        Account no.<%= bank_account.account_number %>
+        Account no.<%= @user.bank_account.account_number %>
       </div>
       <div class="col-sm-6">
-       Balance:<%= bank_account.balance %>
+       Balance:<%= @user.bank_account.balance %>
       </div>
     </div><br><br>
   
     <div class="row">
       <div class="col-sm-6">
-        <%=link_to "Click here for Amount tranfer",amount_transfer_user_path(@user) %>
+        <%=link_to "Click here for Amount tranfer",amount_transfer_user_bank_accounts_path(@user) %>
       </div>
-      <div class="col-sm-6"></div>  
+      <div class="col-sm-6">
+        <%=link_to "Add Beneficiary Account",new_beneficiary_path %>
+      </div>  
     </div> 
   </div>      
-<% end %>

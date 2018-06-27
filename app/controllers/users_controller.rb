@@ -4,9 +4,4 @@ class UsersController < ApplicationController
   def show
     @user = current_user 
   end 
-
-  def amount_transfer
-    @user = current_user
-
-  end 
 end

@@ -17,8 +17,12 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    member do
-      get 'amount_transfer' 
-    end  
-  end  
-end
+    resources :bank_accounts do
+      collection do
+        get 'amount_transfer'
+        patch 'transfer'
+      end  
+    end
+  end
+  resources :beneficiaries
+end  

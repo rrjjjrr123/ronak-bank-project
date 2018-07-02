@@ -6,10 +6,8 @@ class BeneficiariesController < ApplicationController
 
   def create
     @user = current_user
-    @beneficiary = Beneficiary.new(beneficiary_params)
-    if @beneficiary.save
-      redirect_to amount_transfer_user_bank_accounts_path(@user)
-    end   
+    @beneficiary = Beneficiary.create(beneficiary_params)
+    redirect_to amount_transfer_user_bank_accounts_path(@user)   
   end
    
   def destroy
@@ -23,7 +21,6 @@ class BeneficiariesController < ApplicationController
   end 
 
  private
-
   def beneficiary_params
     params.require(:beneficiary).permit(:beneficiary_id, :user_id).merge({user_id: current_user.id})
   end

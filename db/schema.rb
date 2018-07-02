@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180627071530) do
+ActiveRecord::Schema.define(version: 20180629080222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,10 +79,26 @@ ActiveRecord::Schema.define(version: 20180627071530) do
     t.index ["user_id"], name: "index_beneficiaries_on_user_id"
   end
 
+  create_table "opts", force: :cascade do |t|
+    t.string "opt"
+    t.boolean "status", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "otps", force: :cascade do |t|
+    t.boolean "status"
+    t.string "otp"
+    t.bigint "transaction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["transaction_id"], name: "index_otps_on_transaction_id"
+  end
+
   create_table "transactions", force: :cascade do |t|
     t.bigint "credit_bank_account_id"
     t.bigint "debit_bank_account_id"
-    t.integer "amount"
+    t.string "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["credit_bank_account_id"], name: "index_transactions_on_credit_bank_account_id"

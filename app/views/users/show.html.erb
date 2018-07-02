@@ -10,11 +10,15 @@
     </div><br><br>
   
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-4">
         <%=link_to "Click here for Amount tranfer",amount_transfer_user_bank_accounts_path(@user) %>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-4">
         <%=link_to "Add Beneficiary Account",new_beneficiary_path %>
+      </div>
+
+       <div class="col-sm-4">
+        <%=link_to "Veiw Transaction Details",user_bank_accounts_path(@user) %>
       </div>  
     </div> 
   </div>      

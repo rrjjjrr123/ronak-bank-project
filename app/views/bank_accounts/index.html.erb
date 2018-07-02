@@ -1,1 +1,21 @@
-<div ><h1>Welcome to the Banking system </h1></div>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Credit Account no.</th>
+        <th>Debit Account no.</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <% @transactions.each do |transaction|%>
+      <tbody>
+        <tr>
+          <td><%= transaction.debit_bank_account.account_number%></td>
+          <td><%= transaction.credit_bank_account.account_number%></td>
+          <td><%= transaction.amount%></td>
+        </tr>
+      </tbody>  
+    <%end%>
+  </table>
+  <%= link_to "Download mini statement",user_bank_accounts_path(@user,format:'pdf')%>
+</div>  

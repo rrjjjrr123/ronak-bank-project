@@ -1,0 +1,14 @@
+<%= form_tag(otp_update_user_bank_accounts_path(@user), method: :post) do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        Enter the otp<%= text_field_tag 'otp'%>   
+      </div> 
+      <div class="col-sm-4">
+        <%=submit_tag("Submit")%>
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
+  </div>    
+<%end%>

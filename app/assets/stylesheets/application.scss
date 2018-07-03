@@ -16,8 +16,9 @@
 
 .logout
 {
-  margin-top: 5px;
-  float:right;
+ position:fixed;
+   right:10px;
+   top:5px;
 }
 
 @import "bootstrap-sprockets";

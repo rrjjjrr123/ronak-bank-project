@@ -18,10 +18,11 @@
 //= require jquery_ujs
 //= require cocoon
 $(document).ready(function(){
+  
   $(".approval_checkbox").change(function(){
-      
+    
     if ($(this).is(":checked")){
-     
+
       $.ajax({
         url: '/admins/'+ $(this).closest('td').attr('id') + '/approve',
         type: 'POST',

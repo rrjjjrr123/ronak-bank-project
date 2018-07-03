@@ -5,8 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
-  def after_sign_up_path_for(resource)
-    "" # Or :prefix_to_your_route
+  def after_sign_up_path_for(resource) 
   end
 
   def after_inactive_sign_up_path_for(resource)

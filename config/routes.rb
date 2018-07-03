@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # get 'users/sign_up', to: 'devise/sessions#new'
-  root'users#show'
-   
-  devise_for :users   
+  root'users#show'  
+
+  devise_for :users 
   
   resources :admins do
     member do
@@ -26,6 +26,7 @@ Rails.application.routes.draw do
         post 'otp_update'
       end  
     end
+    get 'set_password'
   end
   resources :beneficiaries
 end  

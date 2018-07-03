@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root'users#show'  
 
   devise_for :users 
-  
+
   resources :admins do
     member do
       post 'approve'

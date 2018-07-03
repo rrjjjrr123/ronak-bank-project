@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_one_attached :image
   has_many :addresses
   has_one :bank_account
-  has_many :beneficiaries
+  has_many :beneficiaries 
   devise :invitable, :database_authenticatable, :registerable, :confirmable,
          :recoverable ,:rememberable, :trackable,:timeoutable
   accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
@@ -21,7 +21,7 @@ class User < ApplicationRecord
   end
   
   def send_email
-    ExampleMailer.sample_email(self).deliver
+    ConfirmationMailer.confirmation_email(self).deliver
   end
 
   def active_for_authentication? 

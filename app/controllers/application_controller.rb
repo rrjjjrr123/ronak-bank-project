@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name,
     :father_name, :mother_name,:father_occupation,
-    :mother_occupation,:phone_no, addresses_attributes: 
+    :mother_occupation,:phone_no,:user_type,addresses_attributes: 
     [:id,:permanent,:country, :state, :city, :area, 
     :house_no, :street_no, :pin , 
     :address_proof,:_destroy]])

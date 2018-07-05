@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user! 
-  
-  def index
-    current_user  
-  end
 
-  def show
-    @user = current_user 
+  def new
+  end  
+
+  def show 
   end
 
   def create
@@ -21,6 +19,12 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email)
+    params.require(:user).permit(:first_name, :last_name,
+    :father_name, :mother_name,:father_occupation,
+    :mother_occupation,:phone_no,:user_type,addresses_attributes: 
+    [:id,:permanent,:country, :state, :city, :area, 
+    :house_no, :street_no, :pin , 
+    :address_proof,:_destroy])
   end
 end
+

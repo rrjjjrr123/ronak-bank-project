@@ -14,12 +14,12 @@ class User < ApplicationRecord
   validates :last_name, presence: true 
   after_create :generate_bank_account_details
   after_create :send_email
-  after_create :deliver_invitation 
+  after_create :deliver_invitation
 
 
   def generate_bank_account_details
     self.create_bank_account!(account_number: rand(10 ** 10))
-  end
+  end     
   
   def send_email
     ConfirmationMailer.confirmation_email(self).deliver

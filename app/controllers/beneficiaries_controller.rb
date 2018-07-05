@@ -4,10 +4,9 @@ class BeneficiariesController < ApplicationController
     @beneficiary = Beneficiary.new
   end
 
-  def create
-    @user = current_user
+  def create 
     @beneficiary = Beneficiary.create(beneficiary_params)
-    redirect_to amount_transfer_user_bank_accounts_path(@user)   
+    redirect_to amount_transfer_user_bank_accounts_path(current_user)   
   end
    
   def destroy

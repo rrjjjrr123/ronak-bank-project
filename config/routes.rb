@@ -9,11 +9,8 @@ Rails.application.routes.draw do
   # get 'users/sign_up', to: 'devise/sessions#new'
   root'users#show'  
 
-  devise_for :users,
-    controllers: {registrations: "registrations"}
-  as :user do
-    get "/register", to: "registrations#new", as: "register"
-  end
+  devise_for :users
+  
 
   resources :admins do
     member do

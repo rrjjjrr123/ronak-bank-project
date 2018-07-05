@@ -4,7 +4,5 @@ class Beneficiary < ApplicationRecord
 
   def beneficiary_account_number
     beneficiary.bank_account.account_number
-  end
-
-    
+  end  
 end

@@ -17,5 +17,5 @@
       </tbody>  
     <%end%>
   </table>
-  <%= link_to "Download mini statement",user_bank_accounts_path(@user,format:'pdf')%>
+  <%= link_to "Download mini statement",user_bank_accounts_path(current_user,format:'pdf')%>
 </div>  

@@ -60,9 +60,12 @@
         </div> 
         <div class="col-sm-4">
           <%= link_to_remove_association "remove address", f %>
-        </div>
-          
-        <div class="col-sm-4"></div>
+        </div>  
+        <div class="col-sm-4">
+          <%if@user.admin?%>
+            <%= select_tag "admin_sign_up", options_for_select([['manager', 1], ['user', 2]])%>
+          <%end%>
+          </div>
       </div>  
     </div>
   </div>  

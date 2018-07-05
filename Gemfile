@@ -9,6 +9,10 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
 gem 'devise'
+gem 'barista'
+gem 'json'
+gem 'therubyracer', :require => nil
+gem 'jquery-rails'
 gem 'devise_invitable', '~> 1.7.0'
 gem 'rails', '~> 5.1.6'
 # Use postgresql as the database for Active Record

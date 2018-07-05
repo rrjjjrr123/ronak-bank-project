@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180702130446) do
+ActiveRecord::Schema.define(version: 20180704100633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,8 +105,11 @@ ActiveRecord::Schema.define(version: 20180702130446) do
     t.bigint "credit_bank_account_id"
     t.bigint "debit_bank_account_id"
     t.string "amount"
+    t.bigint "bank_account_id"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["bank_account_id"], name: "index_transactions_on_bank_account_id"
     t.index ["credit_bank_account_id"], name: "index_transactions_on_credit_bank_account_id"
     t.index ["debit_bank_account_id"], name: "index_transactions_on_debit_bank_account_id"
   end
@@ -143,6 +146,8 @@ ActiveRecord::Schema.define(version: 20180702130446) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.boolean "manager", default: false
+    t.string "admin_sign_up"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

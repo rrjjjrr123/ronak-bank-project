@@ -16,6 +16,7 @@ class User < ApplicationRecord
   after_create :send_email
   after_create :deliver_invitation 
 
+
   def generate_bank_account_details
     self.create_bank_account!(account_number: rand(10 ** 10))
   end

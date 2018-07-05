@@ -2,11 +2,18 @@
   <div class="table-responsive">          
     <table class="table">
       <% @users.each do |user| %>
-      <tr>
-        <td><%=user.email%></td>
-        <td id="<%=user.id%>"><%=check_box_tag :approved,true, false,class: "approval_checkbox"%></td>
-      </tr>  
-      <% end %>
+        <tr>
+          <td><%=user.email%></td>
+          <td id="<%=user.id%>"> Approval<%=check_box_tag :approved,true, false,class: "approval_checkbox"%></td>
+        </tr>
+      <% end %>    
     </table>
   </div>
-</div>
+  
+  <div class="row">
+    <div class="col-sm-6">
+      <%=link_to "create", register_path %>
+    </div>
+  </div>  
+</div>    
+    

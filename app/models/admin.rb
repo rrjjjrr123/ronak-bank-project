@@ -1,3 +1,3 @@
 class Admin < ApplicationRecord
-  include DeviseInvitable::Inviter
+  include DeviseInvitable::Inviter  
 end

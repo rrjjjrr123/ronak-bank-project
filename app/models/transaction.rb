@@ -7,13 +7,11 @@ class Transaction < ApplicationRecord
   after_create :send_otp_email  
   after_update :update_bank_accounts
   
-  enum status: [:inprocess,:complete,:failed] 
+  enum status: [:inprocess, :complete, :failed] 
   
   def validates_debit_account_balance
     if debit_bank_account.balance < amount
-      redirect_to user_path(@user)
-    else
-      redirect_to transfer_user_bank_accounts_path(@user) 
+      return     
     end
   end
 

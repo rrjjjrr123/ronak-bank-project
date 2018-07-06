@@ -4,19 +4,19 @@
       <div class="row">
         <div class="col-sm-4">
           <div class="form-group">
-            <%= f.label :Houseno%>
+            <%= f.label :Houseno%><br>
             <%= f.text_field :house_no %>
           </div>  
         </div>
         <div class="col-sm-4">
           <div class="form-group">
-            <%= f.label :Streetno%>
+            <%= f.label :Streetno%><br>
             <%= f.text_field :street_no %>
           </div>    
         </div>   
         <div class="col-sm-4">
           <div class="form-group">
-            <%= f.label :Area %>
+            <%= f.label :Area %><br>
             <%= f.text_field :area %>
           </div>        
         </div>
@@ -24,19 +24,19 @@
       <div class="row">
         <div class="col-sm-4">
           <div class="form-group">
-            <%= f.label :City %>
+            <%= f.label :City %><br>
             <%= f.text_field :city %>
           </div>
         </div>  
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <div class="form-group">
-            <%= f.label :State %>
+            <%= f.label :State %><br>
             <%= f.text_field :state %>
           </div>  
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-4">
           <div class="form-group">
-            <%= f.label :Country %>
+            <%= f.label :Country %><br>
             <%= f.text_field :country %>
           </div>
         </div>  
@@ -44,28 +44,31 @@
       <div class="row">
         <div class="col-sm-4">
           <div class="form-group">
-            <%= f.label :Pincode %>
+            <%= f.label :Pincode %><br>
             <%= f.text_field :pin %>
           </div>
         </div>
         <div class="col-sm-4">
-          <%= f.label :Address_proof %>
+          <%= f.label :Address_proof %><br>
           <%= f.file_field :image %>        
         </div>
       </div>
      
       <div class="row">
         <div class="col-sm-4">
-          <%=f.check_box :permanent,{},true, false %>
-        </div> 
-        <div class="col-sm-4">
-          <%= link_to_remove_association "remove address", f %>
-        </div>  
-        <div class="col-sm-4">
-          <%if@user.admin?%>
-            <%= select_tag "admin_sign_up", options_for_select([['manager', 1], ['user', 2]])%>
-          <%end%>
+          <div class="col-sm-1">
+            <%=f.check_box :permanent,{},true, false %>    
           </div>
+          <div class="col-sm-10">
+            <h6>click here to make it as permanent address</h6>
+          </div> 
+
+          <div class="col-sm-offset-1">
+            <%= link_to_remove_association "remove address", f %>    
+          </div> 
+        </div> 
+        <div class="col-sm-4"></div>  
+        <div class="col-sm-4"></div>
       </div>  
     </div>
   </div>  

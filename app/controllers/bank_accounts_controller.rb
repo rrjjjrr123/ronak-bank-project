@@ -18,13 +18,14 @@ class BankAccountsController < ApplicationController
   def transfer
     credit_account_number = BankAccount.find_by(account_number:params[:credit_acc]) 
     debit_account_number = BankAccount.find_by(account_number:params[:debit_acc])
-   @transaction = Transaction.create!(credit_bank_account:credit_account_number,debit_bank_account:debit_account_number,amount:params[:Amount])
+    @transaction = Transaction.create!(credit_bank_account:credit_account_number,debit_bank_account:debit_account_number,amount:params[:Amount])
   end
  
   def otp_update
     @transaction = Transaction.find(params[:transaction])
     if @transaction.otp.otp == params[:otp]
       Transaction.find(@transaction.id).update_attributes(status: 1)
+      redirect_to root_path  
     end 
   end   
 

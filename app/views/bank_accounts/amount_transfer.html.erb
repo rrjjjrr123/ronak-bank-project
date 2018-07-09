@@ -1,4 +1,18 @@
 <br><br>
+  <% if current_user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(current_user.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% current_user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <%= form_for current_user, url:transfer_user_bank_accounts_path(current_user) do |f| %>
   <div class="container">
     <div class="row">

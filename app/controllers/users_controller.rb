@@ -5,7 +5,8 @@ class UsersController < ApplicationController
     @user = User.new
   end 
 
-  def create 
+  def create
+
     @user = User.new(user_params)
     if @user.save
       redirect_to admins_path
@@ -22,7 +23,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name,
-    :father_name, :mother_name,:father_occupation,
-    :mother_occupation,:phone_no,:user_type,:email)
+   :phone_no,:user_type)
   end
 end

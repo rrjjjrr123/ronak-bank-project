@@ -17,6 +17,8 @@
 
     <% if user_signed_in? %>
       <%= link_to 'Logout', destroy_user_session_path, method: :delete,class: "logout" %>
-    <% end %>
+      <% elsif seller_signed_in? %> 
+        <%= link_to 'Logout',destroy_seller_session_path, method: :delete,class: "logout" %>    
+      <% end %>
   </body>
 </html>

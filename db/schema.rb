@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180706113258) do
+ActiveRecord::Schema.define(version: 20180711135206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,20 +85,56 @@ ActiveRecord::Schema.define(version: 20180706113258) do
     t.index ["user_id"], name: "index_beneficiaries_on_user_id"
   end
 
-  create_table "opts", force: :cascade do |t|
-    t.string "opt"
-    t.boolean "status", default: true
+  create_table "items", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.float "price"
+    t.bigint "seller_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["seller_id"], name: "index_items_on_seller_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "order_number"
+    t.integer "status"
+    t.float "amount"
+    t.integer "quantity"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_orders_on_item_id"
   end
 
   create_table "otps", force: :cascade do |t|
-    t.boolean "status"
+    t.boolean "status", default: true
     t.string "otp"
     t.bigint "transaction_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["transaction_id"], name: "index_otps_on_transaction_id"
+  end
+
+  create_table "sellers", force: :cascade do |t|
+    t.string "full_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "confirmed_at"
+    t.string "confirmation_token"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.index ["email"], name: "index_sellers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true
   end
 
   create_table "transactions", force: :cascade do |t|

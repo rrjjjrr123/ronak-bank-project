@@ -1,7 +1,7 @@
 class AdminsController < ApplicationController
 
-  def index
-    @users = User.order(:created_at).where(approved: false)
+  def index     
+    @users = users.order(:created_at).where(approved: false)
   end
 
   def approve

@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
   
+  devise_for :sellers 
+
+  devise_scope :seller do
+   # custom path to login/sign_in
+    get 'sign_up', to: 'devise/registrations#new'
+     # custom path to sign_up/registration
+  end
+  resources :sellers
+  get '/sellers', to: 'sellers#show'
+
   get 'regristations/regristations'
 
   # devise_for :users 
@@ -17,7 +27,7 @@ Rails.application.routes.draw do
     end
   end 
 
-  scope 'admin' do 
+  scope'admin' do 
     resources :users do
       resources :bank_accounts do
         collection do

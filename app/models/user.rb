@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class User < ApplicationRecord    
   # Include default devise modules. Others available are:
   # :confirmable, :lockable and :omniauthable
   enum user_type: [:user, :admin ,:manager]

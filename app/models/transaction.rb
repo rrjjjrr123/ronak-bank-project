@@ -2,16 +2,16 @@ class Transaction < ApplicationRecord
   belongs_to :credit_bank_account, class_name: "BankAccount"
   belongs_to :debit_bank_account, class_name: "BankAccount"
   has_one :otp
-  validate :debit_account_balance
+  validate :debit_account_balance, on: :create
   after_create :generate_otp
   after_create :send_otp_email  
-  after_update :update_bank_accounts
+  after_createter_update :update_bank_accounts
   
   enum status: [:inprocess, :complete, :failed] 
   
   def debit_account_balance   
     if debit_bank_account.balance < amount
-      errors.add(:balance, "amount is greather than current debit_account_balance")
+      errors.add(:amount, "amount is greather than current debit_account_balance")
     end
   end
 

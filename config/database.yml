@@ -1,0 +1,9 @@
+
+# PostgreSQL
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: bankproject_development
+  pool: 5
+  username: ronak
+  password: ronak

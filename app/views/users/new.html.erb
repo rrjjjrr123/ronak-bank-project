@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-3">
+      <h2>Sign up</h2>
+    </div>
+      <div class="col-sm-5"></div>
+  </div>
+</div><br>
+
+<%= form_for @user do |f| %>
+  <div class="container">
+    <div class="row">    
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= f.label :Firstname %><br />
+          <%= f.text_field :first_name, autofocus: true %>
+        </div>  
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= f.label :Lastname %><br />
+          <%= f.text_field :last_name, autofocus: true %>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <%= f.label :Fathers_name%><br/>
+        <%= f.text_field :father_name, autofocus: true %>
+      </div>
+    </div>
+    <div class="row">     
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= f.label :Mother_name %><br />
+          <%= f.text_field :mother_name, autofocus: true %>  
+        </div> 
+      </div>    
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= f.label :Fathers_Occupation %><br />
+          <%= f.text_field :father_occupation, autofocus: true %>
+        </div>         
+      </div> 
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= f.label :Mothers_Occupation %><br />
+          <%= f.text_field :mother_occupation, autofocus: true %>
+        </div>  
+      </div> 
+    </div>
+    <div class="row">  
+      <div class="col-sm-4">
+        <div class="form-group">
+         <%= f.label :email %><br/>
+         <%= f.email_field :email, autofocus: true %>
+        </div>  
+      </div> 
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= f.label :Choose_role %><br/>
+          <%= f.select "user_type", User.user_types.keys%>
+        </div>
+      </div>
+    </div>        
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= f.submit "Sign up" %>
+        </div>  
+      </div>
+    </div> 
+  </div>     
+<% end %>
+    

@@ -1,0 +1,36 @@
+<br><br>
+  <% if current_user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(current_user.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% current_user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_for current_user, url:transfer_user_bank_accounts_path(current_user) do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <%= text_field_tag 'debit_acc', current_user.bank_account.account_number,readonly: true %> 
+      </div>
+      <div class="col-sm-4">       
+        Select Account No. <%= select_tag "credit_acc", options_from_collection_for_select(Beneficiary.where(user_id: current_user.id),"beneficiary_account_number","beneficiary_account_number",readonly: true)%>      
+      </div>
+      
+      <div class="col-sm-4">
+        Amount<%= text_field_tag 'Amount'%>
+      </div>
+    </div> 
+    <br><br>
+   
+    <div>
+      <%=submit_tag("Submit")%>  
+    </div>
+  </div>    
+<%end%>

@@ -1,0 +1,28 @@
+ <% if current_user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(current_user.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% current_user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= form_tag(otp_update_user_bank_accounts_path(current_user), method: :post) do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        Enter the otp<%= text_field_tag 'otp'%>   
+      </div> 
+      <div class="col-sm-4">
+        <%= hidden_field_tag(:transaction ,:otp_transaction,{ value: @transaction.id })%>
+      </div>
+      <div class="col-sm-4">
+        <%=submit_tag("Submit")%>
+      </div>
+    </div>
+  </div>    
+<%end%>

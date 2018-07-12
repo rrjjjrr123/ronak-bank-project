@@ -1,0 +1,21 @@
+<br><br>
+<%= form_for @user, url:transfer_user_path(@user)  do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <%= text_field_tag 'debit_acc', @user.bank_account.account_number,readonly: true %> 
+      </div>
+      <div class="col-sm-4">
+        Select Account No. <%= select_tag "credit_acc", options_from_collection_for_select(BankAccount.all, "account_number","account_number",readonly: true)%>      
+      </div>
+      <div class="col-sm-4">
+        Amount<%= text_field_tag 'Amount'%>
+      </div>
+    </div> 
+    <br><br>
+   
+   <div>
+      <%=submit_tag("Submit")%>  
+   </div>
+  </div>    
+<%end%>

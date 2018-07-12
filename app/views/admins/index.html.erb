@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="table-responsive">          
+    <table class="table">
+      <% @users.each do |user| %>
+        <tr>
+          <td><%=user.email%></td>
+          <td id="<%=user.id%>"> Approval<%=check_box_tag :approved,true, false,class: "approval_checkbox"%></td>
+        </tr>
+      <% end %>    
+    </table>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6">
+      <%=link_to "create", new_user_path %>
+    </div>
+  </div>  
+</div>    
+    

@@ -9,10 +9,14 @@ class RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)    
   end
 
-  def after_sign_up_path_for(resource) 
+  def after_sign_in_path_for(resource)
+  end
+
+  def after_sign_up_path_for(resource)
+    new_user_session_path 
   end
 
   def after_inactive_sign_up_path_for(resource)
-    "/users/password/new"
+    root_path
   end
 end

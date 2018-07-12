@@ -37,8 +37,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem "cocoon"
-
 gem "activestorage"
+gem "carrierwave"
 
 gem 'prawn','~>1.2.1'
 gem 'prawn-table','~>0.1.0'

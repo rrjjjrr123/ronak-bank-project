@@ -1,0 +1,8 @@
+<h2>Welcome to the online e-commerce website</h2><br>
+<%@items.each do |item|%>
+   Title: <%=item.title%><br>
+   Description: <%=item.description%><br>
+   Price: <%=item.price%><br>
+  <%= image_tag(item.image_url) if item.image? %>
+  <%=link_to'purchase',new_user_session_path%>
+<% end %>

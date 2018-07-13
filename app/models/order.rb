@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
   belongs_to :item
-    enum status:[:pending ,:successfull]
+  enum status:[:pending ,:delivered ,:failed,:placed]
 end

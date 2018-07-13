@@ -13,6 +13,7 @@ class BankAccountsController < ApplicationController
   end
 
   def amount_transfer
+    @order = Order.find(params[:order_id]) 
   end
 
   def transfer
@@ -22,10 +23,10 @@ class BankAccountsController < ApplicationController
   end
  
   def otp_update
+    debugger
     @transaction = Transaction.find(params[:transaction])
     if @transaction.otp.otp == params[:otp]
-      Transaction.find(@transaction.id).update_attributes(status: 1)
-      redirect_to root_path  
+      Transaction.find(@transaction.id).update_attributes(status: 1)  
     end 
   end   
 

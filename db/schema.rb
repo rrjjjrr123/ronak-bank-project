@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180712110736) do
+ActiveRecord::Schema.define(version: 20180713121048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,20 +92,23 @@ ActiveRecord::Schema.define(version: 20180712110736) do
     t.bigint "seller_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "avatar"
     t.string "image"
+    t.boolean "order_confirmation", default: false
+    t.integer "quantity"
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.bigint "order_number"
-    t.integer "status"
     t.float "amount"
     t.integer "quantity"
     t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
+    t.bigint "user_id"
     t.index ["item_id"], name: "index_orders_on_item_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "otps", force: :cascade do |t|
@@ -152,6 +155,11 @@ ActiveRecord::Schema.define(version: 20180712110736) do
     t.index ["debit_bank_account_id"], name: "index_transactions_on_debit_bank_account_id"
   end
 
+  create_table "user_orders", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -193,4 +201,5 @@ ActiveRecord::Schema.define(version: 20180712110736) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "orders", "users"
 end

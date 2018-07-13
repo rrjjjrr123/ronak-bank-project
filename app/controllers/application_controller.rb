@@ -13,17 +13,11 @@ class ApplicationController < ActionController::Base
     :address_proof,:_destroy]])
   end
 
-  def after_sign_in_path_for(resource)
-    case resource.class
-     when User 
-      if resource.admin? 
-        admins_path
-      else 
-        request.env['omniauth.origin'] || stored_location_for(resource) ||  root_path 
-      end
-      when Seller
-        seller_path 
-      end     
+  def after_sign_in_path_for(resource) 
+    if resource.admin? 
+      admins_path
+    else 
+      request.env['omniauth.origin'] || stored_location_for(resource) || root_path 
+    end         
   end
-end
-  
+end  

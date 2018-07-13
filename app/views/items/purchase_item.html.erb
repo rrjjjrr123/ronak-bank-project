@@ -1,0 +1,15 @@
+<%=form_for @item  do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        confirm your order <%=f.check_box :order_confirmation,{}, true, false %>
+      </div>
+      <div class="col-sm-4">
+        select quantity<%= f.select(:quantity, options_for_select([['1'], ['2'],['3']],1)) %>
+      </div>
+      <div class="col-sm-4">
+        <%=f.submit("Submit")%>
+      </div>
+    </div>
+  </div>  
+<% end %>

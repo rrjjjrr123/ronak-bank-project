@@ -1,12 +1,12 @@
 class SellersController < ApplicationController
   
-  before_action :authenticate_seller!
+  before_action :authenticate_seller! ,except:[:new]
   
   def index
   end  
 
   def show 
-    @seller = Seller.find(params[:id]) 
+     
   end 
 
   def new 

@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   devise_for :sellers 
 
   resources :sellers
-  get '/sellers', to: 'sellers#show'
-
-  get 'regristations/regristations'
+  
+  get '/seller', to: 'sellers#show'
 
   # devise_for :users 
      
@@ -14,7 +13,7 @@ Rails.application.routes.draw do
   # get 'users/sign_up', to: 'devise/sessions#new'
   root'items#index'
   resources :orders 
-  devise_for :users,controllers: {registrations: "registrations"}  
+  devise_for :users  
   resources :admins do
     member do
       post 'approve'
@@ -22,14 +21,21 @@ Rails.application.routes.draw do
     end
   end 
 
-  
+
   scope'seller' do
-    resources :items
-  end  
+    resources :items do   
+    end  
+  end
 
-
-  scope'admin' do 
-    resources :users do
+  resources :items do   
+    member do
+      get 'purchase_item'
+      get 'confirm_order'
+    end
+  end    
+ 
+  resources :users do
+    resources :order do 
       resources :bank_accounts do
         collection do
           get 'amount_transfer'
@@ -38,7 +44,7 @@ Rails.application.routes.draw do
           post 'otp_update'
         end  
       end
-    end
+    end  
   end  
 
 

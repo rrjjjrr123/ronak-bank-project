@@ -1,8 +1,20 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
   
+<<<<<<< HEAD
   devise_for :sellers   
   resources :sellers
   get '/sellers', to: 'sellers#index'
+=======
+  devise_for :sellers 
+
+  devise_scope :seller do
+   # custom path to login/sign_in
+    get 'sign_up', to: 'devise/registrations#new'
+     # custom path to sign_up/registration
+  end
+  resources :sellers
+  get '/sellers', to: 'sellers#show'
+>>>>>>> 07e072873bb9a5a81f41dbb145d4e87de7b0c867
 
   get 'regristations/regristations'
 
@@ -33,6 +45,11 @@ Rails.application.routes.draw do
       end
     end
   end  
+<<<<<<< HEAD
   
+=======
+
+
+>>>>>>> 07e072873bb9a5a81f41dbb145d4e87de7b0c867
   resources :beneficiaries
 end  

@@ -1,4 +1,5 @@
 <% if user_signed_in? %>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete ,class: "logout") %>   
+  <%= link_to('Logout', destroy_user_session_path, method: :delete ,class: "logout") %>
+  <%= link_to 'My Account',my_account_users_path , class: "previous_order"%> 
 <% end %>      
     

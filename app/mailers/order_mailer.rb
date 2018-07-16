@@ -1,8 +1,8 @@
-class NotificationMailer < ApplicationMailer
+class OrderMailer < ApplicationMailer
   default from: "admin@gmail.com"
   
-  def notification_email(order)
+  def order_email(order)
     @order = order
     mail(to: BlueDart.first.email, subject: 'Order Confirmed')
-  end  
+  end
 end

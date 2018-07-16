@@ -1,6 +1,5 @@
   Rails.application.routes.draw do
  
-
   devise_for :sellers   
   resources :sellers
      
@@ -16,7 +15,6 @@
     end
   end 
 
-
   scope'seller' do
     resources :items do   
     end  
@@ -27,6 +25,7 @@
       get 'purchase_item'
       get 'confirm_order'
     end
+    resources :orders
   end    
  
   resources :users do
@@ -41,13 +40,10 @@
       resources :bank_accounts do
         collection do
           get 'amount_transfer'
-          patch 'transfer'
-          get 'otp_generator'
-          post 'otp_update'
+          patch 'transfer' 
+          post 'otp_confirmation'
         end  
       end
     end  
   end 
-
-  resources :beneficiaries
 end  

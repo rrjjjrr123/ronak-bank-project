@@ -2,12 +2,10 @@ class SellersController < ApplicationController
   
   before_action :authenticate_seller! , except: [:new]
   
-  def index
-    
+  def index   
   end  
 
-  def show 
-     
+  def show      
   end 
 
   def new 

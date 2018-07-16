@@ -6,8 +6,8 @@ development:
   encoding: unicode
   database: bankproject_development
   pool: 5
-  username: ronak
-  password: ronak
+  username: rails
+  password: rails
 
 # PostgreSQL. Versions 9.1 and up are supported.
 #

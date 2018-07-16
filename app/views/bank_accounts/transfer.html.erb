@@ -1,3 +1,4 @@
+ <br><br>
  <% if current_user.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -11,7 +12,7 @@
       </ul>
     </div>
   <% end %>
-<%= form_tag( otp_update_user_order_bank_accounts_path(current_user,@order), method: :post) do |f| %>
+<%= form_tag( otp_confirmation_user_order_bank_accounts_path(current_user,@order), method: :post) do |f| %>
   <div class="container">
     <div class="row">
       <div class="col-sm-4">

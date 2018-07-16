@@ -1,0 +1,3 @@
+class BlueDart < ApplicationRecord
+  
+end

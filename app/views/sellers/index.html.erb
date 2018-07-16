@@ -1,22 +1,12 @@
-<h1>Listing Sellers</h1>
+<h1>Welcome <%=current_seller.full_name%></h1><br>
 <div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>SellerName</th>
-        <th>Items</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody> 
-      <% @sellers.each do |seller| %>
-        <tr>
-          <td><%= seller.full_name %></td>
-          <td><% seller.items.each do|item|%>
-          <td><%=item.title%></td>
-          <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="col-sm-4">
+      <%= select_tag(:category, options_for_select([['Mens Footwear', 1], ['Clothing', 2],['Mobile', 3],['Tv', 4]])) %>      
+    </div>
+    <div class="col-sm-4">
+      <%=link_to'Add Listing',new_item_path%>      
+    </div>
+  </div>
 </div>
+

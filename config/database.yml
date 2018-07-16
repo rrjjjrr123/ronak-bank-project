@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 # PostgreSQL
 development:
@@ -8,7 +8,7 @@ development:
   pool: 5
   username: ronak
   password: ronak
-=======
+
 # PostgreSQL. Versions 9.1 and up are supported.
 #
 # Install the pg driver:
@@ -25,16 +25,7 @@ development:
 # Configure Using Gemfile
 # gem 'pg'
 #
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-development:
-  <<: *default
-  database: bankproject_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -66,9 +57,7 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: bankproject_test
+
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -89,9 +78,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: bankproject_production
-  username: bankproject
-  password: <%= ENV['BANKPROJECT_DATABASE_PASSWORD'] %>
->>>>>>> 07e072873bb9a5a81f41dbb145d4e87de7b0c867

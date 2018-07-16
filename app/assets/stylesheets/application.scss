@@ -14,12 +14,21 @@
  *= require_self
  */
 
-.logout
+.logout,.login 
 {
- position:fixed;
-   right:10px;
+  position:fixed;
+  right:300px;
    top:5px;
 }
+.sign_up
+{
+  position:fixed;
+  right:225px;
+  top:5px; 
+}
+
+
+
 
 @import "bootstrap-sprockets";
 @import "bootstrap" 

@@ -9,7 +9,6 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
 gem 'devise'
-gem 'barista'
 gem 'json'
 gem 'therubyracer', :require => nil
 gem 'jquery-rails'
@@ -37,8 +36,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem "cocoon"
-
 gem "activestorage"
+gem "carrierwave"
 
 gem 'prawn','~>1.2.1'
 gem 'prawn-table','~>0.1.0'

@@ -1,0 +1,25 @@
+<div class="container">
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>SellerName</th>
+        <th>Items</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody> 
+        <tr>
+          <% if @seller.present? && @seller.items.present?%>
+              <td><%= @seller.full_name %></td>
+              <td><% @seller.items.each do|item|%>
+                <td><%=item.title%></td>
+                <%end%>
+              </td>
+            <%end%>                       
+                
+        </tr>
+
+    </tbody>
+  </table>
+</div>       
+

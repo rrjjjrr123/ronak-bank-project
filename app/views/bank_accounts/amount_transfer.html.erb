@@ -12,19 +12,18 @@
       </ul>
     </div>
   <% end %>
-
-<%= form_for current_user, url:transfer_user_bank_accounts_path(current_user) do |f| %>
+<%= form_for [current_user,@order], url: transfer_user_order_bank_accounts_path(current_user,@order) do |f| %>
+  
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
-        <%= text_field_tag 'debit_acc', current_user.bank_account.account_number,readonly: true %> 
+        Account no.<%= text_field_tag 'debit_acc'%> 
       </div>
-      <div class="col-sm-4">       
-        Select Account No. <%= select_tag "credit_acc", options_from_collection_for_select(Beneficiary.where(user_id: current_user.id),"beneficiary_account_number","beneficiary_account_number",readonly: true)%>      
-      </div>
+      <%= hidden_field_tag(:credit_acc ,:credit_account,{ value: "9835597191"})%>
+      <%= hidden_field_tag(:order_id ,:credit_account,{ value: @order.id})%>
       
       <div class="col-sm-4">
-        Amount<%= text_field_tag 'Amount'%>
+        Amount<%= text_field_tag 'Amount',@order.amount%>
       </div>
     </div> 
     <br><br>

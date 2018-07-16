@@ -1,0 +1,6 @@
+<h2>Order Details</h2>
+
+Name:<%=current_user.name%><br>
+Amount<%=@order.amount%><br>
+Quantity:<%=@order.quantity%><br>
+<%= button_to "Continue Shopping", root_path, method: "get" %>

@@ -9,16 +9,18 @@
   </head>
 
   <body>
-    
     <div class="container">
       <%= render 'layouts/messages' %>
-      <%= yield %>
-    </div>  
-
-    <% if user_signed_in? %>
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete,class: "logout" %>
-      <% elsif seller_signed_in? %> 
-        <%= link_to 'Logout',destroy_seller_session_path, method: :delete,class: "logout" %>    
-      <% end %>
+    </div>    
+    
+    <ul class="hmenu">   
+      <% if !request.url.include?("seller") %>
+        <%= render 'devise/menu/login_items' %>
+      <%else%>
+        <%= render 'devise/menu/seller_items' %>
+      <%end%>  
+    </ul>
+    
+    <%= yield %>
   </body>
 </html>

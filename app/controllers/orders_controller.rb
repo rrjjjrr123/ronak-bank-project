@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id]) 
   end
-  
+
   def create    
     @item = Item.find(params[:item_id])
     if params[:order][:order_confirmation] == "true"
@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
       redirect_to  purchase_item_item_path(@item) 
     end
   end 
-  
+    
   def veiw_order
     @orders = current_user.orders
   end 

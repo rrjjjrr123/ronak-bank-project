@@ -86,3 +86,17 @@ class RegistrationsController < Devise::RegistrationsController
   def after_inactive_sign_up_path_for(resource)
   end
 end
+
+
+_______________________________________________________________________
+
+
+  private 
+
+  def get_transaction
+    transaction = Transaction.find(params[:transaction])
+  end
+
+  def get_order
+    @order = Order.find(params[:order_id])
+  end

@@ -7,7 +7,7 @@ class Transaction < ApplicationRecord
   after_create :update_bank_accounts
   
   enum status: [:inprocess, :complete, :failed] 
-    
+          
   def update_bank_accounts
     credit_bank_account.update(balance: credit_bank_account.balance.to_f + amount.to_f)
     debit_bank_account.update(balance: debit_bank_account.balance.to_f - amount.to_f)

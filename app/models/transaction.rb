@@ -2,10 +2,7 @@ class Transaction < ApplicationRecord
   belongs_to :credit_bank_account, class_name: "BankAccount"
   belongs_to :debit_bank_account, class_name: "BankAccount"
   has_one :otp
-  after_create :generate_otp
-  after_create :send_otp_email  
-  after_create :update_bank_accounts
-  
+  after_create :generate_otp, :send_otp_email , :update_bank_accounts
   enum status: [:inprocess, :complete, :failed] 
           
   def update_bank_accounts

@@ -1,7 +1,7 @@
 class User < ApplicationRecord    
   # Include default devise modules. Others available are:
   # :confirmable, :lockable and :omniauthable
-  enum user_type: [:user, :admin ,:customer]
+  enum user_type: [:user, :customer]
   has_one_attached :image
   has_many :orders
   has_many :addresses
@@ -22,7 +22,7 @@ class User < ApplicationRecord
     ConfirmationMailer.confirmation_email(self).deliver
   end
 
-  def name
+  def full_name
     "#{first_name} #{last_name}"
   end  
 end

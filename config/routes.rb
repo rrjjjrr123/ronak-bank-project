@@ -30,7 +30,7 @@
  
   resources :users do
     collection do 
-      get 'my_account'
+      get 'account_details'
       get 'profile'
     end
     resources :orders do

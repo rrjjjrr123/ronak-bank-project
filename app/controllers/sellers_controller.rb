@@ -1,6 +1,6 @@
 class SellersController < ApplicationController
   
-  before_action :authenticate_seller! , except: [:new]
+  before_action :authenticate_seller!, except: [:new]
   
   def index   
   end  

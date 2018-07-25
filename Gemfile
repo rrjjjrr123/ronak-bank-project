@@ -46,6 +46,7 @@ gem 'jquery-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass', '~> 3.3.7'
+gem 'rails-controller-testing'
 
 
 group :development, :test do
@@ -55,9 +56,16 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'letter_opener'
+  gem "shoulda"  
+  gem "faker"  
+  gem "factory_girl_rails"
+  gem 'rspec-rails', '~> 3.7'    
 end
 
-
+group :test do
+  gem 'shoulda-matchers', '~> 3.0', require: false
+  gem 'database_cleaner', '~> 1.5'
+end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

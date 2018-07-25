@@ -11,7 +11,8 @@ class ItemsController < ApplicationController
   end  
 
   def create
-    @item = current_seller.items.create!(item_params) 
+    debugger
+    current_seller.items.create!(item_params) 
     redirect_to root_path
   end
 
@@ -22,6 +23,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title,:description,:price,:image)
+    params.require(:item).permit(:title, :description, :price, :image)
   end 
 end

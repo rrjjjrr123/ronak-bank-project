@@ -100,3 +100,43 @@ _______________________________________________________________________
   def get_order
     @order = Order.find(params[:order_id])
   end
+
+
+
+# it "assigns given comment to correct article"
+  #   create!
+  #   expect(assigns(:comment).article_id).to eq params[:article_id]
+  # end
+
+
+
+  #     it "creates a new item" do
+  #       item = FactoryGirl.attributes_for(:item)
+  #       expect{
+  #       post :create, params: { item: item } 
+  #     }.to change(Item,:count).by(1)
+  #   end
+  # end
+  # end
+
+
+
+
+  # context "with invalid attributes" do
+  #   it "does not save the new contact" do
+  #     expect{
+  #       post :create, contact: Factory.attributes_for(:invalid_contact)
+  #     }.to_not change(Contact,:count)
+  #   end
+    
+  #   it "re-renders the new method" do
+  #     post :create, contact: Factory.attributes_for(:invalid_contact)
+  #     response.should render_template :new
+  #   end
+  # end
+
+
+      # it "redirects to the new contact" do
+    #   post :create, params: params
+    #   response.should redirect_to root_path
+    # end

@@ -11,7 +11,6 @@ class ItemsController < ApplicationController
   end  
 
   def create
-    debugger
     current_seller.items.create!(item_params) 
     redirect_to root_path
   end

@@ -1,11 +1,16 @@
   Rails.application.routes.draw do
  
-  devise_for :sellers   
+  devise_for :sellers  
   resources :sellers
      
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # get 'users/sign_up', to: 'devise/sessions#new'
+  
+  devise_scope :seller do
+    get '/login', to: 'devise/sessions#create'
+  end  
+  
   root'items#index' 
   devise_for :users  
   resources :admins do

@@ -1,4 +1,4 @@
-class BankAccountsControl_sep_+ler < ApplicationController
+class BankAccountsControl_sep_+lerp < ApplicationController
   before_actionact  ion :authenticate_user!
   before_action :get_order   
 

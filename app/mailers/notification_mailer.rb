@@ -3,6 +3,6 @@ class NotificationMailer < ApplicationMailer
 
   def send_notification(order)
     @order = order
-    mail(to:BlueDart.first.email, subject: 'confirm mail')
+    mail(to: BlueDart.first.email, subject: 'confirm order')
   end 
 end

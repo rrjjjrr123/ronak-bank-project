@@ -58,7 +58,7 @@ group :development, :test do
   gem 'letter_opener'
   gem "shoulda"  
   gem "faker"  
-  gem "factory_girl_rails"
+  gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.7'    
 end
 

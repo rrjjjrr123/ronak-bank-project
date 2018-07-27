@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
     
   sequence(:random) do |n|
     @random ||= (100..100000).to_a.shuffle
@@ -8,8 +8,8 @@ FactoryGirl.define do
   factory :user do 
     email { Faker::Internet.email }
     password { Faker::Internet.password }
-    id { FactoryGirl.generate(:random) }
+    id {FactoryBot.generate(:random) }
     first_name {"ronak"}
-    last_name  {"jain"} 
+    last_name  {"jain"}
   end
 end

@@ -140,3 +140,31 @@ _______________________________________________________________________
     #   post :create, params: params
     #   response.should redirect_to root_path
     # end
+
+
+
+
+      sequence :random_title do |n|
+    (0..2).map { (65 + rand(26)).chr }.join
+  end
+
+  sequence :random_description do |n|
+    (0..5).map { (65 + rand(26)).chr }.join
+  end
+
+  sequence(:ranking) do |n|
+    @random_rankings ||= (300..10000).to_a.shuffle
+    @random_rankings[n]
+  end
+  
+  sequence(:seller_ranking) do |n|
+    @random_rankings ||= (1..10000).to_a.shuffle
+    @random_rankings[n]
+  end
+
+  factory :item do 
+    title     { FactoryGirl.generate(:random_title)  }
+    description  { FactoryGirl.generate(:random_description)  }
+    price { FactoryGirl.generate(:ranking) }
+    seller_id { FactoryGirl.generate(:seller_ranking) }
+  end

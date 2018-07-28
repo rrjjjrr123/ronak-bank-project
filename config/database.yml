@@ -6,8 +6,17 @@ development:
   encoding: unicode
   database: bankproject_development
   pool: 5
-  username: ronak
-  password: ronak
+  username: ronak 
+  password: ronak 
+
+
+test :
+  adapter: postgresql
+  encoding: unicode
+  database: bankproject_test
+  pool: 5
+  username: ronak 
+  password: ronak                               
 
 # PostgreSQL. Versions 9.1 and up are supported.
 #

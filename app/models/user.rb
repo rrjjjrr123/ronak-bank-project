@@ -1,7 +1,7 @@
 class User < ApplicationRecord    
   # Include default devise modules. Others available are:
   # :confirmable, :lockable and :omniauthable
-  enum user_type: [:user, :admin ,:customer]
+  enum user_type: [:user, :customer]
   has_one_attached :image
   has_many :orders
   has_many :addresses
@@ -11,12 +11,8 @@ class User < ApplicationRecord
          :recoverable ,:rememberable, :trackable
   accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :bank_account, reject_if: :all_blank, allow_destroy: true
-  validates :first_name, presence: true   
-  validates :last_name, presence: true 
-  after_create :generate_bank_account_details
-  after_create :send_email
-  after_create :deliver_invitation
-
+  validates :first_name,:last_name, presence: true    
+  after_create :generate_bank_account_details, :send_email , :deliver_invitation
 
   def generate_bank_account_details
     self.create_bank_account!(account_number: rand(10 ** 10))
@@ -26,7 +22,7 @@ class User < ApplicationRecord
     ConfirmationMailer.confirmation_email(self).deliver
   end
 
-  def name
+  def full_name
     "#{first_name} #{last_name}"
   end  
 end

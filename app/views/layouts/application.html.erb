@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Bankproject</title>
-    <%= csrf_meta_tags %>
+  <html>
+    <head>
+      <title>E-commerce Website</title>
+      <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-    <div class="container">
-      <%= render 'layouts/messages' %>
-    </div>    
-    
-    <ul class="hmenu">   
-      <% if !request.url.include?("seller") %>
-        <%= render 'devise/menu/login_items' %>
-      <%else%>
-        <%= render 'devise/menu/seller_items' %>
-      <%end%>  
-    </ul>
-    
-    <%= yield %>
-  </body>
-</html>
+    <body>
+      <div class="container">
+        <%= render 'layouts/messages' %>
+      </div>    
+      
+      <ul class="hmenu">   
+        <% if !request.url.include?("seller") %>
+          <%= render 'devise/menu/login_items' %>
+        <%else%>
+          <%= render 'devise/menu/seller_items' %>
+        <%end%>  
+      </ul>  
+      <%= yield %>
+    </body>
+  </html>

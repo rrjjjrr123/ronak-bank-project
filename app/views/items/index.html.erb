@@ -1,14 +1,19 @@
 <h2>Welcome to the online e-commerce website</h2><br>
 <%@items.each do |item|%>
-  Title: <%=item.title%><br>
-  Description: <%=item.description%><br>
-  Price: <%=item.price%><br>
-  <%=image_tag(item.image) if item.image? %>
-  <%=link_to 'purchase', purchase_item_item_path(item.id)%>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2 col-lg-2">
+        Title: <%=item.title%><br>
+        Description: <%=item.description%><br>
+        Price: <%=item.price%><br>
+        <%=image_tag(item.image) if item.image? %>    
+      </div>
+    </div>
+  </div>
+  
+  <%=link_to 'purchase', purchase_item_item_path(item.id) ,class: "purchase" %><br><br>
   <%=link_to 'Sell on e-commerce',sellers_path , class: "seller"%>
-  <% if user_signed_in? %>
-    <%= link_to 'My Account',my_account_users_path , class: "previous_order"%>
-  <%else%>
+  <% if !user_signed_in? %>
     <%= link_to('Login', new_user_session_path,class: "login") %>
     <%= link_to('Signup',new_user_registration_path,class: "sign_up")%>
   <%end%>   

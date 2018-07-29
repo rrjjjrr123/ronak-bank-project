@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :addresses
   has_one :bank_account
   has_many :beneficiaries 
-  devise :invitable, :database_authenticatable, :registerable, :confirmable,
+  devise :invitable, :database_authenticatable, :registerable, 
          :recoverable ,:rememberable, :trackable
   accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :bank_account, reject_if: :all_blank, allow_destroy: true

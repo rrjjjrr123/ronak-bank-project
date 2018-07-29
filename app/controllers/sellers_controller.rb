@@ -7,8 +7,5 @@ class SellersController < ApplicationController
 
   def show      
   end 
-
-  def new 
-    @seller = Seller.new
-  end  
+    
 end

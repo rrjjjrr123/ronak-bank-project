@@ -1,17 +1,18 @@
-class BankAccountsControl_sep_+lerp < ApplicationController
-  before_actionact  ion :authenticate_user!
+class BankAccountsController < ApplicationController
+  before_action :authenticate_user!
   before_action :get_order   
 
-  def amount_transfer 
+  def amount_transfer
   end
 
-  def transfer   
+  def transfer       
     credit_account_number = BankAccount.find_by(account_number: params[:credit_acc]) 
     debit_account_number = BankAccount.find_by(account_number: params[:debit_acc])
     @transaction = Transaction.create!(credit_bank_account: credit_account_number, debit_bank_account: debit_account_number, amount: params[:amount])
   end
  
   def otp_confirmation
+    debugger
     transaction = Transaction.find(params[:transaction])   
     if transaction.otp.otp == params[:otp]
       transaction.update_attributes(status: 1)
@@ -25,5 +26,5 @@ class BankAccountsControl_sep_+lerp < ApplicationController
   
   def get_order 
     @order = Order.find(params[:order_id])  
-  end  
-end
+  end
+end     

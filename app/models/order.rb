@@ -1,5 +1,4 @@
-class Order < ApplicationRecord
-  
+class Order < ApplicationRecord 
   belongs_to :item
   belongs_to :user
   after_update :send_notification, :user_notification

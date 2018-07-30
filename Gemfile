@@ -59,13 +59,15 @@ group :development, :test do
   gem "shoulda"  
   gem "faker"  
   gem 'factory_bot_rails'
-  gem 'rspec-rails', '~> 3.7'    
+  gem 'rspec-rails', '~> 3.7'
+  gem 'chromedriver-helper'    
 end
 
 group :test do
   gem 'shoulda-matchers', '~> 3.0', require: false
   gem 'database_cleaner', '~> 1.5'
   gem 'rspec-rails', '~> 3.7'
+  gem 'selenium-webdriver'
 end
 
 group :development do

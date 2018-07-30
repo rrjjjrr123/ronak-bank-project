@@ -55,7 +55,14 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  config.include Capybara::DSL 
+  config.include Capybara::DSL
+
+
+  Capybara.register_driver :chrome do |app|
+    Capybara::Selenium::Driver.new(app, :browser => :chrome)
+  end
+
+Capybara.javascript_driver = :chrome 
   
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
   # have no way to turn it off -- the option exists only for backwards
@@ -100,6 +107,9 @@ RSpec.configure do |config|
   # end of the spec run, to help surface which specs are running
   # particularly slow.
   config.profile_examples = 10
+
+
+
 
   # Run specs in random order to surface order dependencies. If you find an
   # order dependency and want to debug it, you can fix the order by providing

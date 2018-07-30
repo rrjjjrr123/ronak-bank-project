@@ -7,7 +7,5 @@ FactoryBot.define do
 
   factory :transaction do |f| 
     id { FactoryBot.generate(:ranking_transaction) }
-    credit_bank_account{"9835597191"}
-    debit_bank_account{"9835597191"}
   end
 end

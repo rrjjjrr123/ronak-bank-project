@@ -14,10 +14,10 @@
       </div>    
       
       <ul class="hmenu">   
-        <% if !request.url.include?("seller") %>
-          <%= render 'devise/menu/login_items' %>
+        <% if request.url.include?("seller") %>
+          <%= render 'devise/menu/seller_items'%>
         <%else%>
-          <%= render 'devise/menu/seller_items' %>
+          <%= render 'devise/menu/login_items'%>
         <%end%>  
       </ul>  
       <%= yield %>

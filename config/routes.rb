@@ -7,9 +7,6 @@
 
   # get 'users/sign_up', to: 'devise/sessions#new'
   
-  devise_scope :seller do
-    get '/login', to: 'devise/sessions#create'
-  end  
   
   root'items#index' 
   devise_for :users  

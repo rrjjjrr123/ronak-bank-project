@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 20180717070407) do
 
   create_table "otps", force: :cascade do |t|
     t.boolean "status", default: true
-    t.string "otp"
+    t .string "otp"
     t.bigint "transaction_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -49,7 +49,7 @@ RSpec.configure do |config|
   
   config.extend ControllerMacros, :type => :controller
   config.include Devise::Test::ControllerHelpers, type: :controller
- config.include Devise::Test::IntegrationHelpers, type: :feature 
+  config.include Devise::TestHelpers, :type => :view 
   config.infer_spec_type_from_file_location!
 
   # Filter lines from Rails gems in backtraces.

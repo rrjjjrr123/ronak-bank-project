@@ -7,12 +7,12 @@ class User < ApplicationRecord
   has_many :addresses
   has_one :bank_account
   has_many :beneficiaries 
-  devise :invitable, :database_authenticatable, :registerable, 
+  devise  :database_authenticatable, :registerable, 
          :recoverable ,:rememberable, :trackable
   accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :bank_account, reject_if: :all_blank, allow_destroy: true
   validates :first_name,:last_name, presence: true    
-  after_create :generate_bank_account_details, :send_email , :deliver_invitation
+  after_create :generate_bank_account_details, :send_email 
 
   def generate_bank_account_details
     self.create_bank_account!(account_number: rand(10 ** 10))

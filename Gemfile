@@ -60,7 +60,7 @@ group :development, :test do
   gem "faker"  
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.7'
-  gem 'chromedriver-helper'    
+  gem 'chromedriver-helper'     
 end
 
 group :test do

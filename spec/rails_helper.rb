@@ -49,7 +49,13 @@ RSpec.configure do |config|
   
   config.extend ControllerMacros, :type => :controller
   config.include Devise::Test::ControllerHelpers, type: :controller
-  config.include Devise::TestHelpers, :type => :view 
+  config.include Devise::TestHelpers, :type => :view
+  config.include IntegrationHelpers,  :type => :feature
+
+  config.before(:type => :feature) do
+    Capybara.javascript_driver = :chrome
+    DatabaseCleaner.clean
+  end 
   config.infer_spec_type_from_file_location!
 
   # Filter lines from Rails gems in backtraces.

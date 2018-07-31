@@ -1,7 +1,0 @@
-<%form_for @item ,url: confirm_order_items_path do |f| %>
-  confirm your order <%=f.check_box :order_confirmation,{}, true, false %>
-  select quantity<%= f.select(:qunatity, options_for_select([['1'], ['2'],['3']])) %>
-  <%=f.submit%>
-<% end %>
-
- 

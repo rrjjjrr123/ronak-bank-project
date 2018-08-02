@@ -1,7 +1,7 @@
-$LOAD_PATH << '.'
 require 'rails_helper'
-require 'pry'
+
 RSpec.describe ItemsController  do
+  
   login_seller
   login_user
   

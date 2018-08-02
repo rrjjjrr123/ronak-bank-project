@@ -1,7 +1,9 @@
 {
   "name": "bankproject",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "chromedriver": "^2.41.0"
+  },
   "devDependencies": {
     "@angular/cli": "^6.0.8"
   }

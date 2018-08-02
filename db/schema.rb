@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180717070407) do
+ActiveRecord::Schema.define(version: 20180802124054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,14 +75,6 @@ ActiveRecord::Schema.define(version: 20180717070407) do
     t.index ["user_id"], name: "index_bank_accounts_on_user_id"
   end
 
-  create_table "beneficiaries", force: :cascade do |t|
-    t.integer "beneficiary_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_beneficiaries_on_user_id"
-  end
-
   create_table "blue_darts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -116,7 +108,7 @@ ActiveRecord::Schema.define(version: 20180717070407) do
 
   create_table "otps", force: :cascade do |t|
     t.boolean "status", default: true
-    t .string "otp"
+    t.string "otp"
     t.bigint "transaction_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -196,11 +188,15 @@ ActiveRecord::Schema.define(version: 20180717070407) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.boolean "manager", default: false
     t.datetime "created_at"
     t.string "item_select"
     t.boolean "confirmed", default: false
     t.string "avatar"
+    t.string "authentication_token", limit: 30
+    t.string "provider"
+    t.string "uid"
+    t.text "tokens"
+    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

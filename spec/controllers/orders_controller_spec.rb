@@ -1,6 +1,4 @@
-$LOAD_PATH << '.'
 require 'rails_helper'
-require 'pry'
 
 RSpec.describe OrdersController, type: :controller do
         

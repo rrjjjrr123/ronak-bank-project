@@ -1,51 +1,45 @@
-  Rails.application.routes.draw do
- 
-  devise_for :sellers  
-  resources :sellers
-     
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  # get 'users/sign_up', to: 'devise/sessions#new'
+Rails.application.routes.draw do
+  mount_devise_token_auth_for 'User', at: 'auth' 
   
-  
-  root'items#index' 
-  devise_for :users  
-  resources :admins do
-    member do
-      post 'approve'
-      post 'manager'
-    end
-  end 
-
-  scope'seller' do
-    resources :items do   
-    end  
-  end
-
-  resources :items do   
-    member do
-      get 'purchase_item'
-      get 'confirm_order'
-    end
-    resources :orders
-  end    
- 
-  resources :users do
-    collection do 
-      get 'account_details'
-      get 'profile'
-    end
-    resources :orders do
-      collection do
-        get 'veiw_order'
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do                  
+      devise_for :users
+      devise_for :sellers          
+      scope'seller' do
+        resources :items      
       end
-      resources :bank_accounts do
-        collection do
-          get 'amount_transfer'
-          patch 'transfer' 
-          post 'otp_confirmation'
+
+      resources :sellers,only: [:index, :show]
+
+      resources :items do   
+        member do
+          get 'purchase_item'
+          get 'confirm_order'
+        end
+        resources :orders
+      end    
+
+      resources :users do
+        collection do 
+          get 'account_details'
+          get 'profile'
+        end
+      
+        resources :orders do
+          collection do
+            get 'veiw_order'
+          end
         end  
-      end
-    end  
-  end 
+      
+        resources :bank_accounts do
+          collection do
+            get 'amount_transfer'
+            patch 'transfer' 
+            post 'otp_confirmation'
+          end  
+        end
+      end    
+    end               
+  end
 end  
+  

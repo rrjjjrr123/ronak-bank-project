@@ -5,7 +5,7 @@ class BankAccountsController < ApplicationController
   def amount_transfer
   end
 
-  def transfer       
+  def transfer     
     credit_account_number = BankAccount.find_by(account_number: params[:credit_acc]) 
     debit_account_number = BankAccount.find_by(account_number: params[:debit_acc])
     @transaction = Transaction.create!(credit_bank_account: credit_account_number, debit_bank_account: debit_account_number, amount: params[:amount])

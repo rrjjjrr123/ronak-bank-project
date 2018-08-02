@@ -9,5 +9,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { Faker::Internet.password }
     id { FactoryBot.generate(:random_ranking) }
+    user_type { "seller"}
+    full_name {"sush"}  
   end
 end

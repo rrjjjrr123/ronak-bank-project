@@ -1,6 +1,8 @@
 class User < ApplicationRecord    
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable and :omniauthable
+  #  :confirmable, :lockable and 
+  
+
   enum user_type: [:user, :customer]
   has_one_attached :image
   has_many :orders

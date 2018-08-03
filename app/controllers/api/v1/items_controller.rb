@@ -9,17 +9,21 @@ module Api
 
       def new
         @item = Item.new 
-        render  json: @item 
+        render  json: @item, status: 200
       end  
 
       def create
         @item = current_seller.items.create!(item_params) 
-        render  json: @item ,status: 201
+        if @item
+          render  json: @item ,status: 201
+        else 
+          render json: {status: "error"}
+        end   
       end
 
       def purchase_item
         @item = Item.find(params[:id])  
-        render json: @item 
+        render json: @item, status: 200 
       end   
 
       private

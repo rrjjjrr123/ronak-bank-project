@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   #  :confirmable, :lockable and 
   
+  include DeviseTokenAuth::Concerns::User
 
   enum user_type: [:user, :customer]
   has_one_attached :image
@@ -10,7 +11,7 @@ class User < ApplicationRecord
   has_one :bank_account
   has_many :beneficiaries 
   devise  :database_authenticatable, :registerable, 
-         :recoverable ,:rememberable, :trackable
+         :recoverable ,:rememberable, :trackable, :omniauthable
   accepts_nested_attributes_for :addresses, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :bank_account, reject_if: :all_blank, allow_destroy: true
   validates :first_name,:last_name, presence: true    

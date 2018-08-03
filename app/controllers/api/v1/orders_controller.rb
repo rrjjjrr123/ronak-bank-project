@@ -13,7 +13,7 @@ module Api
           @order = @item.orders.create!(amount: (@item.price.to_i)*(params[:order][:quantity].to_i), quantity: params[:order][:quantity],user_id: current_user.id)
           render json: @order, status: 201
         else
-         head(:unauthorized) 
+          head(:unauthorized) 
         end
       end 
     

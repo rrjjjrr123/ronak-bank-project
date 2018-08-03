@@ -1,9 +1,8 @@
 class ApplicationController < ActionController::Base
-  
-  include DeviseTokenAuth::Concerns::SetUserByToken
 
-  protect_from_forgery with: :null_session
-  protect_from_forgery with: :exception
+  include DeviseTokenAuth::Concerns::SetUserByToken
+  # include DeviseTokenAuth::Concerns::SetSellerByToken
+  protect_from_forgery with: :null_session, if: ->{request.format.json?}
   before_action :configure_permitted_parameters, if: :devise_controller? 
 
   protected
@@ -11,7 +10,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name,
     :father_name, :mother_name, :father_occupation, :full_name, :confirmed, :image,
-    :mother_occupation, :phone_no, :user_type, addresses_attributes: 
+    :mother_occupation, :phone_no, :user_type,addresses_attributes: 
       [:id, :permanent, :country, :state, :city, :area, 
     :house_no, :street_no, :pin , 
     :address_proof, :_destroy]])

@@ -1,4 +1,5 @@
 module AuthHelpers
+  byebug
   def auth_token_to_headers(user)
     request.headers['X-User-Email'] = "#{user.email}"
     request.headers['X-User-Token'] = "#{user.authentication_token}"

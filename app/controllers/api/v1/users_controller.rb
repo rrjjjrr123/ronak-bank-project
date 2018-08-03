@@ -3,14 +3,6 @@ module Api
     class UsersController < Api::BaseController
       before_action :authenticate_user!    
 
-      def account_details
-        render json: current_user 
-      end 
-      
-      def profile
-        render json: current_user   
-      end   
-
       private
 
       def user_params
@@ -19,4 +11,4 @@ module Api
       end  
     end  
   end  
-end  
+end   

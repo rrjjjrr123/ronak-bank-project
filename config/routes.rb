@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-  mount_devise_token_auth_for 'User', at: 'auth' 
   
+  mount_devise_token_auth_for 'User', at: 'auth'
+  mount_devise_token_auth_for 'Seller', at: 'auth'
+
   namespace :api, defaults: {format: :json} do
     namespace :v1 do                  
       devise_for :users
       devise_for :sellers          
+      
       scope'seller' do
-        resources :items      
+        resources :items, only: [:index, :new, :create]      
       end
 
       resources :sellers,only: [:index, :show]

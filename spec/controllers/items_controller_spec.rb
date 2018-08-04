@@ -1,6 +1,5 @@
-$LOAD_PATH << '.'
 require 'rails_helper'
-require 'pry'
+
 RSpec.describe ItemsController  do
   login_seller
   login_user
@@ -18,15 +17,17 @@ RSpec.describe ItemsController  do
   end 
 
   describe "POST create" do
-  
     context "with valid attributes" do
       let(:item_params) { FactoryBot.attributes_for(:item)}
       let(:create!) { post :create, params: {item: item_params}}
       it "creates new item" do     
         expect { create! }.to change { Item.count }.by 1
       end
-    end
-  end
+      it 'redirects to the root path' do  
+        expect(create!).to redirect_to(root_path)
+      end
+    end    
+  end       
 
   describe 'GET #new' do
     let(:item_double) { double("item_double")}

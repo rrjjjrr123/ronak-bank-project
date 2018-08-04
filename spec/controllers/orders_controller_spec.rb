@@ -22,6 +22,16 @@ RSpec.describe OrdersController, type: :controller do
     end
   end
 
+  describe "POST orders#create" do  
+    context "with valid params" do
+    let!(:order_params) { FactoryBot.attributes_for(:order)}
+      it " does not creates a new order" do          
+        expect { post :create, params: { item_id: @item.id, user_id: @user.id, order: order_params}
+         }.to change { Order.count }.by(0)
+      end
+    end
+  end
+
   describe "GET orders#show" do
     context "show action" do           
       it "should render orders#show template" do

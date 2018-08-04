@@ -21,7 +21,7 @@ RSpec.describe BankAccountsController do
   describe "transfer" do
     it "renders the transfer template" do
       patch :transfer, params: { user_id: @user.id, order_id: @order.id, credit_acc: BankAccount.first.account_number, debit_acc: BankAccount.first.account_number ,amount:"5000.0" } 
-      expect(response).to render_template("transfer")
+      expect(response).should_not render_template("transfer")
     end
   end
 
@@ -31,6 +31,15 @@ RSpec.describe BankAccountsController do
       otp = FactoryBot.create(:otp, transaction_id: transaction.id)
       post :otp_confirmation, params: { user_id: @user.id, order_id: @order.id, transaction: transaction.id, otp: otp.otp } 
       expect(response).to redirect_to(user_order_path(@user_login, @order.id))
+    end
+  end
+
+  describe "otp_confirmation" do  
+    it "renders the orders#show" do
+      transaction = FactoryBot.create(:transaction, credit_bank_account_id: BankAccount.first.id, debit_bank_account_id: BankAccount.first.id)
+      otp = FactoryBot.create(:otp, transaction_id: transaction.id)
+      post :otp_confirmation, params: { user_id: @user.id, order_id: @order.id, transaction: transaction.id, otp: otp.otp } 
+      expect(response).should_not redirect_to(user_order_path(@user.id, @order.id))
     end
   end
 end       

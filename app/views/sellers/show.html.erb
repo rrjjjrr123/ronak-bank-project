@@ -1,3 +1,5 @@
+
+<h2>Seller Details </h2>
 <div class="container">
   <table class="table table-condensed">
     <thead>
@@ -13,12 +15,10 @@
               <td><%= @seller.full_name %></td>
               <td><% @seller.items.each do|item|%>
                 <td><%=item.title%></td>
-                <%end%>
+               <%end%>
               </td>
-            <%end%>                       
-                
+          <%end%>                                 
         </tr>
-
     </tbody>
   </table>
 </div>       

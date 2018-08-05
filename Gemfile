@@ -13,7 +13,9 @@ gem 'json'
 gem 'therubyracer', :require => nil
 gem 'jquery-rails'
 gem 'devise_invitable', '~> 1.7.0'
+gem 'devise_token_auth'
 gem 'rails', '~> 5.1.6'
+gem 'omniauth'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -41,13 +43,13 @@ gem "carrierwave"
 
 gem 'prawn','~>1.2.1'
 gem 'prawn-table','~>0.1.0'
-
+gem 'cucumber'
 gem 'jquery-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'rails-controller-testing'
-
+gem 'cucumber'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -60,7 +62,7 @@ group :development, :test do
   gem "faker"  
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.7'
-  gem 'chromedriver-helper'    
+  gem 'chromedriver-helper'     
 end
 
 group :test do
@@ -68,6 +70,7 @@ group :test do
   gem 'database_cleaner', '~> 1.5'
   gem 'rspec-rails', '~> 3.7'
   gem 'selenium-webdriver'
+  gem 'chromedriver-helper' 
 end
 
 group :development do
@@ -79,6 +82,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.7'
+  gem 'chromedriver-helper'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

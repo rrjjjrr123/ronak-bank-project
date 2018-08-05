@@ -5,11 +5,11 @@ FactoryBot.define do
     @random[n]
   end
 
-  factory :user do 
+  factory :user do |f| 
     email { Faker::Internet.email }
     password { Faker::Internet.password }
     id {FactoryBot.generate(:random) }
     first_name {"ronak"}
     last_name  {"jain"}
-  end
+  end  
 end

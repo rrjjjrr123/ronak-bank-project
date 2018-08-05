@@ -1,8 +1,9 @@
 class Seller < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+ 
+  # include DeviseTokenAuth::Concerns::Seller
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable  ,:timeoutable 
+         :recoverable, :rememberable, :trackable, :validatable  ,:timeoutable, :omniauthable 
   has_many :items
   
   def admin?

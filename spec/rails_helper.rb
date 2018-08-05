@@ -19,10 +19,10 @@
 # require only the support files necessary.
 #
 require 'spec_helper'
+require 'capybara/rails' 
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
-
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
@@ -50,18 +50,36 @@ RSpec.configure do |config|
   config.extend ControllerMacros, :type => :controller
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::TestHelpers, :type => :view
+<<<<<<< HEAD
   config.include IntegrationHelpers,  :type => :feature
   config.before(:type => :feature) do
     Capybara.javascript_driver = :chrome
     DatabaseCleaner.clean
   end 
   config.infer_spec_type_from_file_location!
+=======
+  config.include IntegrationHelper,  :type => :feature
+  
+  Capybara.register_driver :chrome do |app|
+    options = Selenium::WebDriver::Chrome::Options.new
+    options.add_argument("--window-size=1024,768")
+    Selenium::WebDriver::Chrome.driver_path = '/home/rails/e-commerce/lib/chrome driver/chromedriver'
+    Capybara::Selenium::Driver.new(app, browser: :chrome,
+      options: options 
+    )
+  end
+>>>>>>> 56acc65112d7589c3fa84e199857b21420c02408
 
+  config.before(:type => :feature) do
+    Capybara.javascript_driver = :chrome
+    DatabaseCleaner.clean
+  end 
+  config.infer_spec_type_from_file_location!
+  
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-   config.infer_spec_type_from_file_location!
-  
+   config.infer_spec_type_from_file_location! 
 end

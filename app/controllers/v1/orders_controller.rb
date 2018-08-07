@@ -1,5 +1,6 @@
 module V1
-  class OrdersController < Api::V1::BaseController
+  # this is api for orders
+  class OrdersController < V1::BaseController
     def show
       @order = Order.find(params[:id])
       render json: @order, status: 200

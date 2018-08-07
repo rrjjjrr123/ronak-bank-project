@@ -1,3 +1,5 @@
+# image upload
+
 class ActiveStorageCreateTables < ActiveRecord::Migration[5.1]
   def change
     create_table :active_storage_blobs do |t|
@@ -9,7 +11,7 @@ class ActiveStorageCreateTables < ActiveRecord::Migration[5.1]
       t.string  :checksum
       t.time    :created_at
 
-      t.index [ :key ], unique: true
+      t.index [:key], unique: true
     end
 
     create_table :active_storage_attachments do |t|
@@ -21,8 +23,8 @@ class ActiveStorageCreateTables < ActiveRecord::Migration[5.1]
 
       t.index :record_gid
       t.index :blob_id
-      t.index [ :record_gid, :name ]
-      t.index [ :record_gid, :blob_id ], unique: true
+      t.index [:record_gid, :name]
+      t.index [:record_gid, :blob_id], unique: true
     end
   end
 end

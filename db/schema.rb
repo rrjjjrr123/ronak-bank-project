@@ -75,14 +75,6 @@ ActiveRecord::Schema.define(version: 20180804092257) do
     t.index ["user_id"], name: "index_bank_accounts_on_user_id"
   end
 
-  create_table "beneficiaries", force: :cascade do |t|
-    t.integer "beneficiary_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_beneficiaries_on_user_id"
-  end
-
   create_table "blue_darts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -199,7 +191,6 @@ ActiveRecord::Schema.define(version: 20180804092257) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.boolean "manager", default: false
     t.datetime "created_at"
     t.string "item_select"
     t.boolean "confirmed", default: false

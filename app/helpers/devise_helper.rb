@@ -1,7 +1,7 @@
-  module DeviseHelper
+# this is devise helper
+module DeviseHelper
   def devise_error_messages!
     return '' if resource.errors.empty?
-
     messages = resource.errors.full_messages.map { |msg| content_tag(:li, msg) }.join
     html = <<-HTML
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -9,12 +9,11 @@
         <span aria-hidden="true">&times;</span>
       </button>
       <strong>
-       #{pluralize(resource.errors.count, "error")} must be fixed
+       #{pluralize(resource.errors.count, 'error')} must be fixed
       </strong>
       #{messages}
     </div>
     HTML
-
     html.html_safe
   end
 end

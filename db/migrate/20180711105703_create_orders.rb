@@ -5,7 +5,7 @@ class CreateOrders < ActiveRecord::Migration[5.1]
       t.integer :status
       t.float :amount
       t.integer :quantity
-      t.belongs_to :item 
+      t.belongs_to :item
       t.timestamps
     end
   end

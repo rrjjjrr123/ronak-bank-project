@@ -1,13 +1,11 @@
-
 FactoryBot.define do
-    
   sequence(:order_ranking) do |n|
-    @order_rankings ||= (100..100000).to_a.shuffle
+    @order_rankings ||= (100..100_000).to_a.shuffle
     @order_rankings[n]
   end
 
   sequence(:amount_ranking) do |n|
-    @amount_rankings ||= (5000..10000).to_a.shuffle
+    @amount_rankings ||= (500_0..100_00).to_a.shuffle
     @amount_rankings[n]
   end
 
@@ -22,9 +20,9 @@ FactoryBot.define do
   end
 
   factory :order do
-    amount{ FactoryBot.generate(:amount_ranking) }
-    id { FactoryBot.generate(:order_ranking)}
-    user_id { FactoryBot.generate(:user_ranking)}
-    item_id { FactoryBot.generate(:item_ranking)} 
+    amount { FactoryBot.generate(:amount_ranking) }
+    id { FactoryBot.generate(:order_ranking) }
+    user_id { FactoryBot.generate(:user_ranking) }
+    item_id { FactoryBot.generate(:item_ranking) }
   end
 end

@@ -1,6 +1,6 @@
+# This is welcome mail of user
 class ConfirmationMailer < ApplicationMailer
-
-  default from: "admin@gmail.com"
+  default from: 'admin@gmail.com'
 
   def confirmation_email(user)
     @user = user

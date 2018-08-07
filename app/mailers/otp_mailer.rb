@@ -1,8 +1,9 @@
+# this is otp mail
 class OtpMailer < ApplicationMailer
-  default from: "admin@gmail.com"
+  default from: 'admin@gmail.com'
 
   def otp_email(user)
     @user = user
-    mail(to:@user.email,subject:"OTP verification")    
+    mail(to: @user.email, subject: 'OTP verification')
   end
 end

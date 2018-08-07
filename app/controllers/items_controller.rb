@@ -1,5 +1,7 @@
+# item controller
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:purchase_item]
+
   def index
     @items = Item.all
   end

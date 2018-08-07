@@ -1,7 +1,6 @@
-# frozen_string_literal: true
-
 module V1
-  class ItemsController < Api::V1::BaseController
+  # this is api for items
+  class ItemsController < V1::BaseController
     def index
       @items = Item.all
       render json: @items, status: 200

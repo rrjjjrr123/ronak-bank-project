@@ -1,5 +1,5 @@
+# this is the base controller
 class ApplicationController < ActionController::Base
-
   include DeviseTokenAuth::Concerns::SetUserByToken
   protect_from_forgery with: :null_session, if: -> { request.format.json? }
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
     :confirmed, :image, :mother_occupation, :phone_no, :user_type,
     addresses_attributes: [:id, :permanent, :country, :state, :city,
                            :area, :house_no, :street_no, :pin,
-                           :address_proof, :_destroy]])
+                           :address_proof, :_destroy]
+    ])
   end
 
   def after_sign_in_path_for(resource)

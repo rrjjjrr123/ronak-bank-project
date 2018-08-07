@@ -12,11 +12,11 @@ class User < ApplicationRecord
   has_one :bank_account
   has_many :beneficiaries
   devise  :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :trackable, :omniauthable, :invitable, :confirmable  
+          :recoverable, :rememberable, :trackable, :omniauthable, :confirmable  
   accepts_nested_attributes_for :addresses, allow_destroy: true
   accepts_nested_attributes_for :bank_account, allow_destroy: true
   validates :first_name, :last_name, presence: true
-  after_create :generate_bank_account_details, :send_email, :deliver_invitation
+  after_create :generate_bank_account_details, :send_email
 
   def generate_bank_account_details
     create_bank_account!(account_number: rand(10**10))

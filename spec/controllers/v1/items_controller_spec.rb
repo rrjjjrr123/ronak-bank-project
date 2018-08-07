@@ -1,11 +1,10 @@
 require 'rails_helper'
 
-describe V1::ItemsController, type: :api do
-  
-  describe 'get index' do   
+RSpec.describe V1::ItemsController, type: :controller do
+  describe 'get index' do
     it 'retrieves a specific message' do
-      get :index, params: { format: :json}
-      expect(response).to be_success
+      get :index, params: { format: :json }
+      expect(response).to have_http_status(:success)
     end
   end
 
@@ -17,24 +16,26 @@ describe V1::ItemsController, type: :api do
     end
 
     it 'creates a new item' do
-      expect(response).to be_success
+      expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'post create' do 
-    let(:item_params) { FactoryBot.attributes_for(:item) }  
+  describe 'post create' do
+    let(:item_params) { FactoryBot.attributes_for(:item) }
     it 'retrieves a specific message' do
+      seller = FactoryBot.create(:seller)
+      authenticate_seller seller
       post :create, params: { item: item_params }
-      expect(response).to be_success
+      expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'get purchase_item' do   
+  describe 'get purchase_item' do
     it 'retrieves a specific message' do
       seller = FactoryBot.create(:seller)
       item = FactoryBot.create(:item, seller_id: seller.id)
-      post :purchase_item, params: {item.id}
-      expect(response).to be_success
+      get :purchase_item, params: { id: item.id }
+      expect(response).to have_http_status(:success)
     end
-  end  
+  end
 end

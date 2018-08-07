@@ -17,8 +17,10 @@
 #
 require 'spec_helper'
 require 'capybara/rails'
+require 'devise'
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
+Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
@@ -48,6 +50,8 @@ RSpec.configure do |config|
   config.include IntegrationHelper, type: :feature
   config.include ApiHelper, type: :api
   config.include Requests::JsonHelpers, type: :api
+  config.include Devise::TestHelpers, type: :controller
+  config.include AuthenticationHelper, type: :controller
   config.before(type: :feature) do
     Capybara.javascript_driver = :chrome
     DatabaseCleaner.clean

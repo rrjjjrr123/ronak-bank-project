@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 module V1
-  # this is accounts api
   class AccountsController < BaseController
     before_action :authenticate_user!
     before_action :find_order_id

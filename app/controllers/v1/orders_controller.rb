@@ -1,5 +1,4 @@
 module V1
-  # this is api for orders
   class OrdersController < V1::BaseController
     def show
       @order = Order.find(params[:id])
@@ -8,8 +7,9 @@ module V1
 
     def create
       @item = Item.find(params[:item_id])
+      @user = User.find(params[:user_id])
       quantity = params[:quantity].to_i
-      @order = @item.orders.create!(amount: @item.price.to_i * quantity)
+      @order = @item.orders.create!(amount: @item.price.to_i * quantity, user_id: @user.id)
       if @order.save
         render json: @order, status: 201
       else
@@ -18,7 +18,8 @@ module V1
     end
 
     def veiw_order
-      @orders = current_user.orders
+      @user = User.find(params[:user_id])
+      @orders = @user.orders
       render json: @orders, status: 200
     end
   end

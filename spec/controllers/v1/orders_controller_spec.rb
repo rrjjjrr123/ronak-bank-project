@@ -1,37 +1,31 @@
 require 'rails_helper'
 
-describe V1::OrdersController, type: :api do
-
-
+RSpec.describe V1::OrdersController, type: :controller do
   before do
-    token = JWT.encode({user: User.first.id}, 
-    ENV["AUTH_SECRET"], "HS256")
-    header "Authorization", "Bearer #{token}"
     @seller = FactoryBot.create(:seller)
-    @item = FactoryBot.create(:item, seller_id: seller.id)
-    @user = FactoryBot.craet(:user)
-    @order = FactoryBot.create(:order, item_id: item.id, user_id: user.id)
-  end  
-
- 
-  describe 'orders show' do   
+    @item = FactoryBot.create(:item, seller_id: @seller.id)
+    @user = FactoryBot.create(:user)
+    @order = FactoryBot.create(:order, item_id: @item.id, user_id: @user.id)
+  end
+  describe 'orders show' do
     it 'retrieves a specific message' do
       get :show, params: { id: @order.id }
-      expect(response).to be_success
+      expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'orders create' do 
+  describe 'orders create' do
     it 'retrieves a specific message' do
-      post :create, params: { item_id: @item.id, quantity: @item.quantity }
-      expect(response).to be_success
+      post :create, params: { item_id: @item.id, quantity: @item.quantity,
+                              user_id: @user.id }
+      expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'orders' do   
+  describe 'orders' do
     it 'retrieves a specific message' do
-      get: view_order 
-      expect(response).to be_success
+      get :veiw_order, params: { user_id: @user.id }
+      expect(response).to have_http_status(:success)
     end
-  end  
+  end
 end

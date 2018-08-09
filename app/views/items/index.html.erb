@@ -1,20 +1,63 @@
-<h2>Welcome to the online e-commerce website</h2><br>
-<%@items.each do |item|%>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-2 col-lg-2">
-        Title: <%=item.title%><br>
-        Description: <%=item.description%><br>
-        Price: <%=item.price%><br>
-        <%=image_tag(item.image) if item.image? %>    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <h1 class="my-4">Youngsters</h1>
+      <div class="list-group">
+        <a href="#" class="list-group-item">Shoes</a>
+        <a href="#" class="list-group-item">Watches</a>
+        <a href="#" class="list-group-item">Footwears</a>
       </div>
     </div>
+ 
+    <div class="col-lg-9">
+      <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+            <%=image_tag "index.jpeg"%>
+          </div>
+          <div class="carousel-item">
+            <%=image_tag "index2.jpeg"%>
+          </div>
+          <div class="carousel-item">
+             <%=image_tag "index3.jpeg"%>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <div class="row">
+        <% @items.each do |item| %>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <%=image_tag "#{item.image}"%>
+              <div class="card-body">
+                <h5 class="fa fa-rupee">100.0</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+              </div>
+              <div class="card-footer">
+               <%= link_to 'purchase', purchase_item_item_path(item.id) %>
+              </div>
+            </div>
+          </div>  
+         <% end %>
+      </div>   
+    </div>
   </div>
-  
-  <%=link_to 'purchase', purchase_item_item_path(item.id) ,class: "purchase" %><br><br>
-  <%=link_to 'Sell on e-commerce',sellers_path , class: "seller"%>
-  <% if !user_signed_in? %>
-    <%= link_to('Login', new_user_session_path,class: "login") %>
-    <%= link_to('Signup',new_user_registration_path,class: "sign_up")%>
-  <%end%>   
-<%end%>
+</div>
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+  </div>
+</footer>

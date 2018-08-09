@@ -1,5 +1,35 @@
-<h2>Order Details</h2>
-  Name:<%=current_user.full_name%><br>
-  Amount<%=@order.amount%><br>
-  Quantity:<%=@order.quantity%><br><br>
-<%= button_to "Continue Shopping", root_path, method: "get" %>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <h2>Order Details</h2>
+    </div>
+  </div>
+</div><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Fullname</th>
+             <td><%=current_user.full_name%></td>
+          </tr>
+          <tr>   
+            <th>Amount</th>
+            <td><%=@order.amount%></td>
+          </tr>
+          <tr>  
+            <th>Quantity</th>
+            <td><%=@order.quantity%></td>
+          </tr>
+        </thead>
+      </table><br>
+      <%= button_to "Continue Shopping", root_path, method: "get", class: "btn-info" %>
+    </div>  
+  </div>  
+</div>
+      

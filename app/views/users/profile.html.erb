@@ -1,5 +1,35 @@
 <br><br>
-<h2>Your Profile</h2>
-Name:<%=current_user.full_name%><br>
-Email:<%=current_user.email%><br>
-Phone no.<%=current_user.phone_no%>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5"></div>
+    <div class="col-lg-7">
+      <h2>Your Profile</h2>
+    </div>
+  </div>
+</div>    
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Fullname</th>
+            <td><%=current_user.full_name%></td>
+          </tr>
+          <tr>
+            <th>email</th>
+            <td><%=current_user.email%></td>
+          </tr>
+          <tr>
+            <th>contact no.</th>
+            <td><%=current_user.phone_no%></td>
+          </tr>
+        </thead> 
+      </table><br>
+    <%= button_to "Back", root_path, method: "get", class: "btn-info" %>
+    </div>
+  </div>
+</div>

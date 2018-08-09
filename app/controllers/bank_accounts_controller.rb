@@ -12,7 +12,6 @@ class BankAccountsController < ApplicationController
   end
  
   def otp_confirmation
-    debugger
     transaction = Transaction.find(params[:transaction])   
     if transaction.otp.otp == params[:otp]
       transaction.update_attributes(status: 1)

@@ -1,16 +1,54 @@
-<br><br><br>
+<br>
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <h3> Order Summary</h3>
+    </div>
+  </div>
+</div><br>
 <%= form_with(model: [ @item, @item.orders.build ], local: true) do |f| %>
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Title</th>
+             <td><%=@item.title%></td>
+          </tr>
+          <tr>
+            <th>Price</th>
+             <td><%=@item.price%></td>
+          </tr>
+          </tr>
+
+          <tr>  
+            <th>Desciption</th>
+            <td><%=@item.description%></td>
+          </tr>
+          <tr>   
+            <th>delivery charges</th>
+            <td>FREE</td>
+          </tr>
+        </thead>
+      </table><br>
+    </div>  
+  </div>  
+</div>
+
   <div class="container">
     <div class="row">
-      <div class="col-sm-4">
-        confirm your order <%=f.check_box :order_confirmation,{}, true, false %>
-      </div>
-      <div class="col-sm-4">
-        select quantity<%= f.select(:quantity, options_for_select([['1'], ['2'],['3']],1)) %>
-      </div>
-      <div class="col-sm-4">
-        <%=f.submit("Submit")%>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-2">
+          <%= f.select(:quantity, options_for_select([['1'], ['2'],['3']],1)) %>
+        </div>
+        <div class="col-lg-2">
+          <%=f.submit "Continue",class: "btn btn-primary", id: 'submit'%>
       </div>
     </div>
   </div>  
-<% end %>     
+<% end %>   

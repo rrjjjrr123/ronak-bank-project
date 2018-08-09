@@ -3,6 +3,6 @@ class OrderMailer < ApplicationMailer
   
   def order_email(order)
     @order = order
-    mail(to: BlueDart.first.email, subject: 'Order Confirmed')
+    mail(to: 'bluedart@gmail.com', subject: 'Order Confirmed')
   end
 end

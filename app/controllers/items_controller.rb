@@ -11,13 +11,16 @@ class ItemsController < ApplicationController
   end  
 
   def create
-    current_seller.items.create!(item_params) 
-    redirect_to root_path
+    @item = current_seller.items.create!(item_params)
+    redirect_to item_path(@item)
   end
 
   def purchase_item
     @item = Item.find(params[:id])  
-  end   
+  end
+
+  def show
+  end
 
   private
 

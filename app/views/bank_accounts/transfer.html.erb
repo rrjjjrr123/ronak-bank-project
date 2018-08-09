@@ -1,4 +1,5 @@
  <br><br>
+<h3> enter your verification code </h3>
  <% if current_user.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -22,7 +23,7 @@
         <%= hidden_field_tag(:transaction, :otp_transaction, { value: @transaction.id })%>
       </div>
       <div class="col-sm-4">
-        <%=submit_tag("Submit")%>
+        <%=submit_tag "Submit", class: "btn btn-primary"%>
       </div>
     </div>
   </div>    

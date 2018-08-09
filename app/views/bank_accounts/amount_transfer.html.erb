@@ -1,4 +1,13 @@
-<br><br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-6">
+      <h2> Complete your payement</h2>
+    </div>
+  </div>
+</div><br>
+
   <% if current_user.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -12,24 +21,54 @@
       </ul>
     </div>
   <% end %>
-<%= form_for [current_user,@order], url: transfer_user_order_bank_accounts_path(current_user,@order) do |f| %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>   
+            <th>Title</th>
+            <td><%=@order.item.title%></td>
+          </tr>
+
+          <tr>   
+            <th>Amount</th>
+            <td class="fa fa-rupee"><%=@order.amount%></td>
+          </tr>
+          <tr>  
+            <th>Quantity</th>
+            <td><%=@order.quantity%></td>
+          </tr>
+          <tr>  
+            <th>saved</th>
+            <td class="fa fa-rupee">20</td>
+          </tr>
+        </thead>
+      </table><br>
+    </div>  
+  </div>  
+</div>
+
+<%= form_for charges_path,url: charges_path, id:'chargeForm' do %>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
   
   <div class="container">
     <div class="row">
-      <div class="col-sm-4">
-        Account no.<%= text_field_tag 'debit_acc'%> 
-      </div>
-      <%= hidden_field_tag(:credit_acc, :credit_account, { value: "9835597191"})%>
-      <%= hidden_field_tag(:order_id, :credit_account, { value: @order.id})%>
-      
-      <div class="col-sm-4">
-        Amount<%= text_field_tag 'amount', @order.amount%>
-      </div>
-    </div> 
-    <br><br>
-   
-    <div>
-      <%=submit_tag("Submit")%>  
-    </div>
-  </div>    
-<%end%>
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_qmq0m9XwtgHzcJyUiX6IGpMV"
+          data-description="A month's subscription"
+          data-locale="auto">       
+        </script>
+      </div>   
+    </div>  
+  </div>
+<% end %>

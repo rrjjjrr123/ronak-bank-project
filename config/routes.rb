@@ -19,7 +19,8 @@
       post 'manager'
     end
   end 
-
+ 
+  resources :charges 
   scope'seller' do
     resources :items do   
     end  
@@ -28,7 +29,6 @@
   resources :items do   
     member do
       get 'purchase_item'
-      get 'confirm_order'
     end
     resources :orders
   end    

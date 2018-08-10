@@ -41,8 +41,10 @@ gem "carrierwave"
 gem 'stripe'
 gem 'prawn','~>1.2.1'
 gem 'prawn-table','~>0.1.0'
-gem 'will_paginate', '3.1.5'
+gem 'will_paginate', '~>3.1.6'
+gem 'will_paginate-bootstrap', '~>1.0.0' 
 gem 'jquery-rails'
+gem 'image_processing', '~> 1.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass', '~> 3.3.7'

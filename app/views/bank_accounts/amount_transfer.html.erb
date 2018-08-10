@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-lg-4"></div>
     <div class="col-lg-6">
-      <h2> Complete your payement</h2>
+      <h2> Complete your payment</h2>
     </div>
   </div>
 </div><br>
@@ -24,7 +24,9 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <%=image_tag("#{@order.item.image}", class:"image")%>
+    </div>
     <div class="col-lg-4">
       <table class="table table-bordered">
         <thead>
@@ -57,17 +59,23 @@
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
+     <%= hidden_field_tag(:order_id, :order, { value: @order.id })%>
+     <%= hidden_field_tag(:user_id, :item, { value: current_user.id })%>
   
-  <div class="container">
+  <div class="container"> 
     <div class="row">
       <div class="col-lg-4"></div>
       <div class="col-lg-4">
-        
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="pk_test_qmq0m9XwtgHzcJyUiX6IGpMV"
-          data-description="A month's subscription"
-          data-locale="auto">       
-        </script>
+        <div class="row">
+           <div class="col-lg-3"></div>
+          <div class="col-lg-5">
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_qmq0m9XwtgHzcJyUiX6IGpMV"
+            data-description="A month's subscription"
+            data-locale="auto">       
+        </script>      
+          </div>
+        </div>
       </div>   
     </div>  
   </div>

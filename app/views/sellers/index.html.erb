@@ -1,12 +1,17 @@
-<h1>Welcome <%=current_seller.full_name%></h1><br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h4>Welcome to Seller Hub</h4><br>
+    </div>
+  </div>    
+</div>
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
       <%= select_tag(:category, options_for_select([['Mens Footwear', 1], ['Clothing', 2],['Mobile', 3],['Tv', 4]])) %>      
     </div>
     <div class="col-sm-4">
-      <%=link_to'Add Listing',new_item_path%>      
+      <%=link_to'Add Listing',new_item_path%><br><br><br><br><br><br><br><br><br><br><br><br><br><br>      
     </div>
   </div>
 </div>
-

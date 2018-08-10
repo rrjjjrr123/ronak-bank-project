@@ -1,13 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-3">
-      <h1 class="my-4">Youngsters</h1>
-      <div class="list-group">
-        <a href="#" class="list-group-item">Shoes</a>
-        <a href="#" class="list-group-item">Watches</a>
-        <a href="#" class="list-group-item">Footwears</a>
-      </div>
-    </div>
+    <div class="col-lg-3"></div>
  
     <div class="col-lg-9">
       <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
@@ -41,23 +34,20 @@
         <% @items.each do |item| %>
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <%=image_tag "#{item.image}"%>
+              <%= link_to image_tag("#{item.image}", class:"image"), purchase_item_item_path(item.id)%>
               <div class="card-body">
-                <h5 class="fa fa-rupee">100.0</h5>
+                <h5 class="fa fa-rupee"><%= item.price%></h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
               <div class="card-footer">
-               <%= link_to 'purchase', purchase_item_item_path(item.id) %>
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
               </div>
             </div>
           </div>  
          <% end %>
+       <%= will_paginate @items %>
       </div>   
     </div>
   </div>
 </div>
-<footer class="py-5 bg-dark">
-  <div class="container">
-    <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
-  </div>
-</footer>
+ 

@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <% if !user_signed_in? && !request.url.include?("user") && !request.url.include?("seller") %>
-              <%=link_to 'Sell on e-commerce',sellers_path , class: "seller"%>
+              <%=link_to 'Sell on e-commerce',sellers_path, class: "seller"%>
               <%= link_to('Login', new_user_session_path,class: "login") %>
               <%= link_to('Signup',new_user_registration_path,class: "sign_up")%>
             <%end%>     
@@ -41,17 +41,11 @@
 
     <div class="container">
       <%= render 'layouts/messages' %>
-    </div>    
-    
-    <ul class="hmenu">   
-      <% if request.url.include?("seller") %>
-        <%= render 'devise/menu/seller_items' %>
-      <%else%>
-        <%= render 'devise/menu/login_items' %>
-      <%end%>  
-    </ul>  
+    </div>
     <%= yield %>
   </body>
-</html> 
-  
+  <footer class=" foot bg-dark">
+    <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+  </footer>
+</html>
   

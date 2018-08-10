@@ -1,25 +1,24 @@
 class ChargesController < ApplicationController
-  
-  def new
-  end
 
   def create
-    # Amount in cents    
-    @amount = 500
+    # Amount in cents   
     # Stripe.api_key = "sk_test_2F9x6t1nueCU97ck5tSxJDel"
+    @order = Order.find(params[:order_id])
+    @user = User.find(params[:user_id])
+    @amount = 500
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken],
       )
 
     charge = Stripe::Charge.create(
-       
+     
       :customer    => customer.id,
       :amount      => @amount,
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
     )
-
+    redirect_to  user_order_path(@user,@order)
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to root_path

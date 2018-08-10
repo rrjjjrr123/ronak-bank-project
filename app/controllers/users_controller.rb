@@ -1,12 +1,9 @@
 class UsersController < ApplicationController
   
-  before_action :authenticate_user!    
-
-  def account_details
-  end 
+  before_action :authenticate_user!
   
   def profile   
-  end   
+  end
 
   private
 

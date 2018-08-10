@@ -1,13 +1,11 @@
-
-
-# PostgreSQL
+  # PostgreSQL
 development:
   adapter: postgresql
   encoding: unicode
   database: bankproject_development
   pool: 5
-  username: rails  
-  password: rails  
+  username: ronak  
+  password: ronak  
 
 
 test :
@@ -15,8 +13,8 @@ test :
   encoding: unicode
   database: bankproject_test
   pool: 5
-  username: rails 
-  password: rails                               
+  username: ronak
+  password: ronak                               
 
 # PostgreSQL. Versions 9.1 and up are supported.
 #

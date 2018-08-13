@@ -23,7 +23,7 @@
         <%= hidden_field_tag(:transaction, :otp_transaction, { value: @transaction.id })%>
       </div>
       <div class="col-sm-4">
-        <%=submit_tag("Submit")%>
+        <%=submit_tag "Submit", class: "btn btn-primary"%>
       </div>
     </div>
   </div>    

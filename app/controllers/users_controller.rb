@@ -1,10 +1,8 @@
 # this is users controller
 class UsersController < ApplicationController
-  before_action :authenticate_user!
-
-  def account_details; end
-
-  def profile; end
+  
+  def profile   
+  end
 
   private
 

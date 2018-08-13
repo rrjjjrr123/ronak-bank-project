@@ -3,7 +3,8 @@ class BankAccountsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_order
 
-  def amount_transfer; end
+  def amount_transfer
+  end
 
   def transfer
     credit_acc = params[:credit_acc]
@@ -30,7 +31,7 @@ class BankAccountsController < ApplicationController
   private
 
   def find_order
-    @order = Order.find(params[:order_id])
+    @order = Order.find(params[:format])
   end
 end
   

@@ -8,17 +8,34 @@
   position:fixed;
   right:75px;
   top:5px; 
+  color: white;
+
+}
+
+a:hover.seller {
+  color: white;
+}
+
+a:hover.previous_order {
+  color: white;
 }
 
 .previous_order
 {
  position:fixed;
   right:400px;
-  top:5px; 
+  top:5px;
+  color: white; 
 }
 
 
 .purchase
 {
   margin :150px;
+}
+
+.image
+{
+  height :200px;
+  width :255px;
 }

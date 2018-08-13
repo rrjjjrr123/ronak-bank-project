@@ -5,22 +5,17 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'activestorage'
+
 gem 'bootstrap-sass', '~> 3.3.7'
-gem 'carrierwave'
-gem 'cocoon'
 gem 'coffee-rails', '~> 4.2'
 gem 'cucumber'
 gem 'devise'
 gem 'devise_invitable', '~> 1.7.0'
 gem 'devise_token_auth'
 gem 'jbuilder', '~> 2.5'
-gem 'jquery-rails'
 gem 'json'
 gem 'omniauth'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'prawn', '~>1.2.1'
-gem 'prawn-table', '~>0.1.0'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.6'
 gem 'rails-controller-testing'
@@ -42,6 +37,18 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+gem "cocoon"
+gem "activestorage"
+gem "carrierwave"
+gem 'stripe'
+gem 'stripe_event'
+gem 'prawn','~>1.2.1'
+gem 'prawn-table','~>0.1.0'
+gem 'will_paginate', '~>3.1.6'
+gem 'will_paginate-bootstrap', '~>1.0.0' 
+gem 'jquery-rails'
+gem 'image_processing', '~> 1.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

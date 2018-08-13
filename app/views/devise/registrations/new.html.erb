@@ -4,12 +4,10 @@
     <div class="col-sm-3">
       <h2>Sign up</h2>
     </div>
-      <div class="col-sm-5"></div>
   </div>
 </div><br>
   <%= devise_error_messages! %>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
   <div class="container">
     <div class="row">    
       <div class="col-sm-4">
@@ -61,17 +59,36 @@
           <%= f.label :Phonenumber %><br />
           <%= f.text_field :phone_no, autofocus: true %>
         </div>
-      <div class="col-sm-4"></div>  
+      </div>  
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= f.label :Profile %><br>
+          <%= f.file_field :image %>
+        </div>  
+      </div>  
     </div>      
   </div>
  <hr>
-  <h2>Address Details</h2><br>
-  <h3>Local Adress</h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <h4>Address Details</h4><br>      
+      </div>  
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <h5>Local Adress</h5>      
+      </div>  
+    </div>
+  </div>
+ 
   <div id='addresses'>
     <%= f.fields_for :addresses, f.object.addresses.build do |addresses_form| %>
       <%= render 'address_fields', f: addresses_form %>
     <% end %>
-    
     <div class="row">
       <div class="container">
         <div class="col-sm-4">
@@ -84,12 +101,11 @@
   </div><br>  
   
   <div class="row">
-  <div class="container">
-    <div class="col-sm-1">
-      <%= f.submit "Sign up" %>   
+    <div class="container">
+      <div class="col-sm-1">
+        <%= f.submit "Sign up" %>   
+      </div>
     </div>
   </div>
-  </div>  
 <% end %>
 <%= render "devise/shared/links" %>
-  

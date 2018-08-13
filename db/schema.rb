@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180804092257) do
+ActiveRecord::Schema.define(version: 20180812084821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,10 +75,31 @@ ActiveRecord::Schema.define(version: 20180804092257) do
     t.index ["user_id"], name: "index_bank_accounts_on_user_id"
   end
 
+  create_table "beneficiaries", force: :cascade do |t|
+    t.integer "beneficiary_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_beneficiaries_on_user_id"
+  end
+
   create_table "blue_darts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
+  end
+
+  create_table "charges", force: :cascade do |t|
+    t.string "stripe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.integer "amount"
+    t.string "card_last4"
+    t.string "card_type"
+    t.string "card_exp_month"
+    t.string "card_exp_year"
+    t.index ["user_id"], name: "index_charges_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -191,6 +212,7 @@ ActiveRecord::Schema.define(version: 20180804092257) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.boolean "manager", default: false
     t.datetime "created_at"
     t.string "item_select"
     t.boolean "confirmed", default: false
@@ -199,10 +221,17 @@ ActiveRecord::Schema.define(version: 20180804092257) do
     t.string "provider"
     t.string "uid"
     t.text "tokens"
+    t.string "strip_id"
+    t.string "stripe_subscribe_id"
+    t.string "card_last_4"
+    t.integer "card_exp_month"
+    t.integer "card_exp_year"
+    t.string "card_type"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "charges", "users"
   add_foreign_key "orders", "users"
 end

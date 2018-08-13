@@ -18,17 +18,63 @@
 {
   position:fixed;
   right:300px;
-   top:5px;
+  top:5px;
+  color: white;
+
 }
+a:hover.login {
+  color: white;
+}
+
+a:hover.logout {
+  color: white;
+}
+
+a:hover.sign_up {
+  color: white;
+}
+
 .sign_up
 {
   position:fixed;
   right:225px;
   top:5px; 
+  color: white; 
 }
 
 
+.py-5 bg-dark
+{
+  position: fixed;
+  botton: 0;
+}
 
+ .profile
+{
+  color: black;  
+} 
+
+.veiw_order
+{
+  color: black;
+}
+
+.dropdown-menu
+{
+  right:275px; 
+}
+body
+{
+  overflow-x: hidden;
+}
+.foot{
+  margin-bottom: 0px !important;
+  margin-top: 160px;
+  padding: 20px;
+}
+.MyAccount:hover{
+  background-color : white !important;  
+}
 
 @import "bootstrap-sprockets";
 @import "bootstrap" 

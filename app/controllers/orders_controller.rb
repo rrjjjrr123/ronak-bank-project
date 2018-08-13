@@ -1,16 +1,15 @@
 # this is orders controller
 class OrdersController < ApplicationController
   def show
+    debugger
     @order = Order.find(params[:id])
   end
 
   def create
     @item = Item.find(params[:item_id])
-    amount = @item.price.to_i
-    if params[:order][:order_confirmation].eql?(true)
-      @order = @item.orders.create!(amount: amount * params[:order][:quantity],
-                                    quantity: params[:order][:quantity])
-      redirect_to amount_transfer_user_bank_accounts_path(current_user)
+    if @item
+      @order = @item.orders.create!(amount: (@item.price.to_i)*(params[:order][:quantity].to_i), quantity: params[:order][:quantity],user_id: current_user.id)
+      redirect_to amount_transfer_user_bank_accounts_path(current_user,@order.id)
     else
       redirect_to purchase_item_item_path(@item)
     end

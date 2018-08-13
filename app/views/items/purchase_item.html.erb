@@ -1,17 +1,91 @@
-<br>    
-<h3> Confirm your Order</h3><br>
+<br>
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <h3> Order Summary</h3>
+    </div>
+  </div>
+</div><br>
 <%= form_with(model: [ @item, @item.orders.build ], local: true) do |f| %>
+  
   <div class="container">
     <div class="row">
-      <div class="col-sm-4">
-        confirm your order <%=f.check_box :order_confirmation,{}, true, false %>
+      <div class="col-lg-4">
+        <%=image_tag("#{@item.image}", class:"image")%>
       </div>
-      <div class="col-sm-4">
-        select quantity<%= f.select(:quantity, options_for_select([['1'], ['2'],['3']],1)) %>
+      <div class="col-lg-4">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Title</th>
+               <td><%=@item.title%></td>
+            </tr>
+            <tr>
+              <th>Price</th>
+               <td><%=@item.price%></td>
+            </tr>
+            </tr>
+
+            <tr>  
+              <th>Description</th>
+              <td><%=@item.description%></td>
+            </tr>
+            <tr>   
+              <th>delivery charges</th>
+              <td>FREE</td>
+            </tr>
+          </thead>
+        </table><br>
       </div>
-      <div class="col-sm-4">
-        <%=f.submit("Submit")%>
+      <div class="col-lg-4">
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-11"><h6><strong>No cost EMI from <span class="fa fa-rupee">3999/month</span></strong></h6></div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-11"><h6>Get upto<span class="fa fa-rupee">10000 off on exchange </span> </h6></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-11"><h6><strong>Special Price</strong> Get extra<span class="fa fa-rupee">2500 off </span> </h6></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-11"><h6><strong>Bank offer</strong> 10% Cashback* on Citi Credit Cards</h6></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-11"><h6><strong>Warranty</strong>1 year Onsite Warranty</h6></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-11"><h6><strong>Delivery in 3-6 days</strong></h6></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-11"><h6>Seller&nbsp;&nbsp;&nbsp;<strong>Retailnet</strong></h6></div>
+        </div>
+      </div>  
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2">
+        Select quantity&nbsp;&nbsp;<%= f.select(:quantity, options_for_select([['1'], ['2'],['3']],1)) %>
+      </div>
+      <div class="col-lg-2"></div>
+      <div class="col-lg-2">
+        <div class="row">
+          <div class="col-lg-8"></div>
+          <div class="col-lg-2">
+            <%=f.submit "Continue",class: "btn btn-primary", id: 'submit'%>   
+          </div>
+        </div>
       </div>
     </div>
   </div>  
-<% end %>     
+<% end %>   

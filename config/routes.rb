@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  
-  mount StripeEvent::Engine, at: '/stripe/webhook' 
+ 
   devise_for :users
   devise_for :sellers
 

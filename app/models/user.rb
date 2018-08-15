@@ -6,7 +6,6 @@ class User < ApplicationRecord
   enum user_type: [:user, :customer]
   has_one_attached :image
   has_many :orders
-  has_many :charges
   has_many :addresses
   has_one :bank_account
   has_many :beneficiaries
